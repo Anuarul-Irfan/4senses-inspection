@@ -1062,15 +1062,16 @@ async function testConnection() {
   showSyncStatus('syncing');
   const dot = document.getElementById('sync-dot');
   dot.title = 'Testing…';
+
   try {
     const data = await gasRequest({ action: 'ping' });
     showSyncStatus('ok');
     dot.title = 'Connected ✓';
-    alert('✅ Connection OK!\nServer time: ' + (data.time || 'unknown'));
-  } catch(e) {
+    alert('✅ Connection OK\nServer time: ' + (data.time || 'unknown'));
+  } catch (e) {
     showSyncStatus('error');
     dot.title = 'Failed';
-    alert('❌ Connection failed:\n' + e.message + '\n\nTry opening this URL in your browser:\n' + GAS_URL + '?action=ping');
+    alert('❌ Connection failed\n' + e.message + '\n\nGAS_URL:\n' + GAS_URL);
   }
 }
 
