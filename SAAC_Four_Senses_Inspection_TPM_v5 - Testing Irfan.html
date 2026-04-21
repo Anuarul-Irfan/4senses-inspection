@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="max-age=3600"/>
+<link rel="preconnect" href="https://script.google.com"/>
+<link rel="dns-prefetch" href="https://script.google.com"/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="theme-color" content="#0b0f1a"/>
+<title>4Senses Inspect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+<style>:root{--bg:#0b0f1a;--panel:#111827;--card:#1a2235;--border:#1f2d45;--accent:#00c6ff;--accent2:#0072ff;--sight:#f5c518;--hear:#22c55e;--smell:#f97316;--touch:#ef4444;--ok:#22c55e;--nok:#ef4444;--na:#6b7280;--text:#e2e8f0;--muted:#64748b;--fhd:'Rajdhani',sans-serif;--fbd:'DM Sans',sans-serif;--bottom-nav:72px;--safe-bottom:env(safe-area-inset-bottom,0px);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}html{scroll-behavior:smooth;height:100%;}body{background:var(--bg);color:var(--text);font-family:var(--fbd);height:100%;overflow-x:hidden;padding-bottom:calc(var(--bottom-nav) + var(--safe-bottom) + 24px);}body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,198,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,198,255,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0;}.top-bar{position:sticky;top:0;z-index:200;background:rgba(11,15,26,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1rem;height:56px;display:flex;align-items:center;justify-content:space-between;}.top-logo{display:flex;align-items:center;}.top-logo img{height:38px;width:auto;object-fit:contain;display:block;}.top-right{display:flex;align-items:center;gap:.5rem;}.top-badge{background:rgba(0,198,255,.12);border:1px solid rgba(0,198,255,.25);border-radius:20px;padding:.2rem .7rem;font-family:var(--fhd);font-size:.72rem;font-weight:700;letter-spacing:1px;color:var(--accent);}.view{display:none;position:relative;z-index:1;min-height:calc(100vh - 56px - var(--bottom-nav));padding-bottom:calc(var(--bottom-nav) + 32px);box-sizing:border-box;}.view:not(.active){content-visibility:hidden;}@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}.skeleton{border-radius:8px;background:linear-gradient(90deg,var(--panel) 25%,rgba(255,255,255,.06) 50%,var(--panel) 75%);background-size:400px 100%;animation:shimmer 1.4s infinite;}.view.active{display:block;}.eng-wrap{padding:1rem 1rem 2rem;max-width:640px;margin:0 auto;}.eng-hero{text-align:center;padding:1rem 0 .5rem;margin-bottom:.75rem;}.eng-hero h1{font-family:var(--fhd);font-size:1.5rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(90deg,#f97316,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.eng-hero p{color:var(--muted);font-size:.82rem;}.eng-filter-row{display:flex;gap:.5rem;margin-bottom:1rem;}.eng-filter-chip{flex-shrink:0;padding:.4rem .9rem;border-radius:20px;font-family:var(--fhd);font-size:.78rem;font-weight:700;letter-spacing:.5px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;}.eng-filter-chip.eng-active{background:#f97316;border-color:#f97316;color:#000;}.eng-issue-card{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:.75rem;overflow:hidden;}.eng-issue-card.closed{border-color:rgba(34,197,94,.3);}.eng-issue-header{padding:.75rem 1rem;display:flex;align-items:flex-start;gap:.65rem;}.eng-status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px;}.eng-status-dot.open{background:#ef4444;box-shadow:0 0 6px #ef4444;animation:pulse-dot 1.5s infinite;}.eng-status-dot.closed{background:#22c55e;}@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}.eng-issue-title{font-family:var(--fhd);font-size:.88rem;font-weight:700;color:var(--text);letter-spacing:.3px;}.eng-issue-meta{font-size:.72rem;color:var(--muted);margin-top:.2rem;line-height:1.5;}.eng-issue-meta strong{color:var(--text);}.eng-issue-badge{display:inline-block;font-size:.65rem;font-family:var(--fhd);font-weight:700;padding:.1rem .45rem;border-radius:4px;margin-left:.3rem;vertical-align:middle;}.eng-badge-open{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);}.eng-badge-closed{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3);}.eng-issue-photo{width:56px;height:56px;object-fit:cover;border-radius:8px;flex-shrink:0;border:1px solid var(--border);cursor:pointer;}.eng-close-section{border-top:1px solid var(--border);padding:.75rem 1rem;background:rgba(249,115,22,.04);}.eng-close-title{font-family:var(--fhd);font-size:.72rem;font-weight:700;color:#f97316;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;}.eng-close-form{display:flex;flex-direction:column;gap:.5rem;}.eng-close-input{width:100%;background:var(--panel);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--fbd);font-size:.88rem;padding:.6rem .9rem;resize:none;outline:none;min-height:64px;box-sizing:border-box;}.eng-close-input:focus{border-color:#f97316;}.eng-photo-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}.eng-photo-btn{background:rgba(249,115,22,.1);border:1.5px dashed rgba(249,115,22,.5);color:#f97316;border-radius:10px;padding:.5rem .9rem;font-family:var(--fhd);font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.4rem;}.eng-photo-preview{width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:pointer;}.eng-submit-btn{background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;border:none;border-radius:10px;padding:.6rem 1.2rem;font-family:var(--fhd);font-size:.85rem;font-weight:700;letter-spacing:.5px;cursor:pointer;}.eng-submit-btn:disabled{opacity:.5;}.eng-closed-info{padding:.75rem 1rem;border-top:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.04);}.eng-closed-label{font-family:var(--fhd);font-size:.7rem;color:#22c55e;font-weight:700;letter-spacing:1px;margin-bottom:.3rem;}.eng-closed-text{font-size:.82rem;color:var(--text);line-height:1.4;}.eng-closed-meta{font-size:.7rem;color:var(--muted);margin-top:.25rem;}.eng-closed-photo{width:52px;height:52px;object-fit:cover;border-radius:6px;border:1px solid rgba(34,197,94,.3);cursor:pointer;margin-top:.4rem;}.eng-empty{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-family:var(--fbd);font-size:.9rem;}.kpi-card.kpi-eng{border-color:rgba(249,115,22,.3);}.kpi-card.kpi-eng .kpi-icon{background:rgba(249,115,22,.15);}.pm-inline-form{margin:.6rem 0 0;padding:.75rem;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.3);border-radius:10px;display:none;}.pm-inline-form.show{display:block;}.pm-inline-title{font-size:.75rem;color:#a78bfa;font-weight:700;letter-spacing:.04em;margin-bottom:.5rem;}.pm-inline-select{width:100%;background:rgba(17,24,39,.9);border:1px solid rgba(124,58,237,.35);border-radius:8px;color:#fff;font-size:.82rem;padding:.5rem .7rem;box-sizing:border-box;margin-bottom:.4rem;font-family:inherit;min-height:40px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a78bfa' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .7rem center;padding-right:2rem;}.pm-inline-select:focus{outline:none;border-color:#a78bfa;}.pm-inline-textarea{width:100%;background:rgba(17,24,39,.9);border:1px solid rgba(124,58,237,.35);border-radius:8px;color:#fff;font-size:.82rem;padding:.5rem .7rem;box-sizing:border-box;margin-bottom:.4rem;font-family:inherit;min-height:64px;resize:none;}.pm-inline-textarea:focus{outline:none;border-color:#a78bfa;}.pm-inline-hint{font-size:.7rem;color:#f97316;margin-bottom:.35rem;display:none;}.pm-inline-submit{width:100%;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;border:none;border-radius:8px;padding:.6rem;font-size:.83rem;font-weight:700;cursor:pointer;font-family:var(--fhd);letter-spacing:.5px;transition:opacity .2s;}.pm-inline-submit:disabled{opacity:.35;cursor:not-allowed;}.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(17,24,39,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;padding-bottom:var(--safe-bottom);height:calc(var(--bottom-nav) + var(--safe-bottom));}.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;border:none;background:transparent;color:var(--muted);cursor:pointer;padding:.5rem .25rem;transition:color .2s;position:relative;font-family:var(--fbd);}.bnav-btn .icon{font-size:1.4rem;line-height:1;transition:transform .2s;}.bnav-btn .label{font-size:.62rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}.bnav-btn.active{color:var(--accent);}.bnav-btn.active .icon{transform:scale(1.1);}.bnav-btn.active::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--accent2),var(--accent));}.form-wrap{padding:1rem 1rem 2rem;max-width:640px;margin:0 auto;}.progress-bar-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem;}.progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;}.progress-label span{font-family:var(--fhd);font-size:.8rem;font-weight:600;letter-spacing:1px;color:var(--muted);text-transform:uppercase;}.progress-label .pct{color:var(--accent);}.progress-track{height:8px;background:var(--panel);border-radius:20px;overflow:hidden;}.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .4s ease;}.form-hero{text-align:center;padding:1rem 0 .5rem;}.form-hero h1{font-family:var(--fhd);font-size:1.5rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.form-hero p{color:var(--muted);font-size:.78rem;margin-top:.25rem;}.meta-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1rem;}.meta-card-title{font-family:var(--fhd);font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem;}.fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;align-items:end;}.fields-grid.single{grid-template-columns:1fr;}.field-group{display:flex;flex-direction:column;gap:.3rem;}.field-group label{font-family:var(--fhd);font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}.field-group input,.field-group select{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.65rem .9rem;color:var(--text);font-family:var(--fbd);font-size:1rem;outline:none;transition:border-color .2s;width:100%;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;min-height:48px;}.field-group input:focus,.field-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,198,255,.1);}.field-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;}.field-group select option{background:#1a2235;}.sense-section{margin-bottom:1rem;border-radius:16px;overflow:hidden;}.sense-header{display:flex;align-items:center;gap:.65rem;padding:.85rem 1rem;font-family:var(--fhd);font-size:.95rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;user-select:none;position:relative;}.sense-header .s-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}.sense-header .s-info{flex:1;min-width:0;}.sense-header .s-name{display:block;}.sense-header .s-note{font-size:.65rem;font-weight:400;opacity:.7;letter-spacing:.5px;display:block;margin-top:.1rem;}.sense-header .s-count{font-family:var(--fhd);font-size:.75rem;font-weight:700;padding:.2rem .55rem;border-radius:20px;background:rgba(255,255,255,.08);flex-shrink:0;}.sense-header .s-chevron{font-size:.8rem;opacity:.5;transition:transform .25s;flex-shrink:0;}.sense-section.open .sense-header .s-chevron{transform:rotate(180deg);}.sense-sight .sense-header{background:rgba(245,197,24,.1);color:var(--sight);border:1px solid rgba(245,197,24,.2);}.sense-sight .sense-header .s-badge{background:rgba(245,197,24,.18);}.sense-hear .sense-header{background:rgba(34,197,94,.1);color:var(--hear);border:1px solid rgba(34,197,94,.2);}.sense-hear .sense-header .s-badge{background:rgba(34,197,94,.18);}.sense-smell .sense-header{background:rgba(249,115,22,.1);color:var(--smell);border:1px solid rgba(249,115,22,.2);}.sense-smell .sense-header .s-badge{background:rgba(249,115,22,.18);}.sense-touch .sense-header{background:rgba(239,68,68,.1);color:var(--touch);border:1px solid rgba(239,68,68,.2);}.sense-touch .sense-header .s-badge{background:rgba(239,68,68,.18);}.sense-body{background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 16px 16px;overflow:hidden;max-height:0;transition:max-height .35s ease;}.sense-section.open .sense-body{max-height:9999px;}.check-item{padding:.9rem 1rem;border-bottom:1px solid var(--border);}.check-item:last-child{border-bottom:none;}.check-top{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.6rem;}.check-num{width:22px;height:22px;border-radius:50%;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fhd);font-size:.7rem;font-weight:700;color:var(--muted);flex-shrink:0;margin-top:.1rem;}.check-text{flex:1;}.check-text strong{display:block;font-size:.9rem;font-weight:500;line-height:1.3;color:var(--text);}.check-text .criteria{font-size:.72rem;color:var(--muted);margin-top:.2rem;font-style:italic;line-height:1.4;}.radio-group{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;}.radio-btn{cursor:pointer;}.radio-btn input{display:none;}.radio-pill{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;padding:.65rem .3rem;border-radius:12px;border:1.5px solid var(--border);background:var(--panel);transition:all .18s;user-select:none;-webkit-user-select:none;min-height:56px;}.radio-pill .p-icon{font-size:1.1rem;line-height:1;}.radio-pill .p-label{font-family:var(--fhd);font-size:.75rem;font-weight:700;letter-spacing:1px;color:var(--muted);transition:color .18s;}.radio-btn input:checked + .radio-pill.ok-pill{background:rgba(34,197,94,.18);border-color:var(--ok);box-shadow:0 0 14px rgba(34,197,94,.25);}.radio-btn input:checked + .radio-pill.ok-pill .p-label{color:var(--ok);}.radio-btn input:checked + .radio-pill.nok-pill{background:rgba(239,68,68,.18);border-color:var(--nok);box-shadow:0 0 14px rgba(239,68,68,.25);}.radio-btn input:checked + .radio-pill.nok-pill .p-label{color:var(--nok);}.radio-btn input:checked + .radio-pill.na-pill{background:rgba(107,114,128,.18);border-color:var(--na);box-shadow:0 0 10px rgba(107,114,128,.15);}.radio-btn input:checked + .radio-pill.na-pill .p-label{color:var(--na);}.check-item.checked-ok{border-left:3px solid var(--ok);}.check-item.checked-nok{border-left:3px solid var(--nok);background:rgba(239,68,68,.03);}.check-item.checked-na{border-left:3px solid var(--na);opacity:.7;}.remark-box{margin-top:.6rem;display:none;animation:fadeIn .2s ease;}.remark-box.show{display:block;}@keyframes fadeIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}.remark-box .remark-header{display:flex;align-items:center;gap:.4rem;font-family:var(--fhd);font-size:.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:.4rem;}.remark-box .remark-header .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}.remark-box textarea{width:100%;background:var(--panel);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--fbd);font-size:.9rem;padding:.65rem .9rem;resize:none;outline:none;min-height:72px;transition:border-color .2s;}.remark-box textarea:focus{outline:none;}.remark-box textarea::placeholder{color:var(--muted);}.remark-box.remark-ok .remark-header{color:var(--ok);}.remark-box.remark-ok .dot{background:var(--ok);}.remark-box.remark-ok textarea{border-color:rgba(34,197,94,.45);}.remark-box.remark-ok textarea:focus{border-color:var(--ok);box-shadow:0 0 0 3px rgba(34,197,94,.1);}.remark-box.remark-nok .remark-header{color:var(--nok);}.remark-box.remark-nok .dot{background:var(--nok);}.remark-box.remark-nok textarea{border-color:rgba(239,68,68,.6);background:rgba(239,68,68,.04);}.remark-box.remark-nok textarea:focus{border-color:var(--nok);box-shadow:0 0 0 3px rgba(239,68,68,.1);}.remark-box.remark-na .remark-header{color:var(--na);}.remark-box.remark-na .dot{background:var(--na);}.remark-box.remark-na textarea{border-color:rgba(107,114,128,.4);}.remark-box.remark-na textarea:focus{border-color:var(--na);box-shadow:0 0 0 3px rgba(107,114,128,.1);}.photo-upload-wrap{margin-top:.6rem;display:none;}.photo-upload-wrap.show{display:block;}.photo-upload-label{font-family:var(--fhd);font-size:.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--nok);display:flex;align-items:center;gap:.4rem;margin-bottom:.45rem;}.photo-upload-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.7rem;border-radius:10px;border:1.5px dashed rgba(239,68,68,.5);background:rgba(239,68,68,.05);color:var(--nok);font-family:var(--fhd);font-size:.88rem;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;min-height:52px;}.photo-upload-btn:active{background:rgba(239,68,68,.12);}.photo-upload-btn input[type=file]{display:none;}.photo-previews{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;}.photo-thumb{position:relative;width:72px;height:72px;border-radius:8px;overflow:hidden;border:1.5px solid rgba(239,68,68,.4);flex-shrink:0;}.photo-thumb img{width:100%;height:100%;object-fit:cover;display:block;}.photo-thumb .remove-photo{position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,.75);color:#fff;border:none;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center;line-height:1;}.rec-photos{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.rec-photo-thumb{width:56px;height:56px;border-radius:6px;object-fit:cover;border:1px solid var(--border);cursor:pointer;}.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center;flex-direction:column;gap:1rem;}.lightbox.show{display:flex;}.lightbox img{max-width:95vw;max-height:78vh;border-radius:10px;object-fit:contain;}.lightbox-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}.lightbox-toolbar{display:flex;gap:.75rem;align-items:center;}.lightbox-dl-btn{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;border-radius:30px;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#fff;font-family:var(--fhd);font-size:.95rem;font-weight:700;letter-spacing:1px;text-decoration:none;border:none;cursor:pointer;min-height:48px;box-shadow:0 4px 16px rgba(0,198,255,.3);}.lightbox-dl-btn:active{opacity:.85;}.lightbox-open-btn{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;border-radius:30px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;font-family:var(--fhd);font-size:.9rem;font-weight:600;letter-spacing:1px;text-decoration:none;cursor:pointer;min-height:48px;}.lightbox-counter{color:rgba(255,255,255,.5);font-size:.8rem;font-family:var(--fhd);letter-spacing:1px;}.photo-thumb-wrap{position:relative;flex-shrink:0;}.photo-thumb-wrap .dl-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));border-radius:0 0 6px 6px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;opacity:0;transition:opacity .2s;font-size:.6rem;color:#fff;letter-spacing:.3px;}.photo-thumb-wrap:hover .dl-overlay,.photo-thumb-wrap:active .dl-overlay{opacity:1;}.submit-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem;margin-top:1rem;margin-bottom:2rem;}.submit-card label{font-family:var(--fhd);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem;}.submit-card textarea{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--fbd);font-size:.95rem;padding:.7rem .9rem;resize:none;outline:none;min-height:80px;}.submit-card textarea:focus{border-color:var(--accent);}.submit-btn{width:100%;margin-top:.9rem;padding:1rem;background:linear-gradient(90deg,var(--accent2),var(--accent));border:none;border-radius:14px;color:#fff;font-family:var(--fhd);font-size:1.1rem;font-weight:700;letter-spacing:2px;cursor:pointer;min-height:56px;transition:opacity .2s,transform .15s;box-shadow:0 4px 24px rgba(0,198,255,.25);}.submit-btn:active{transform:scale(.98);opacity:.9;}.toast.toast-error{background:linear-gradient(90deg,#7f1d1d,#991b1b);border-color:var(--nok);}.toast{position:fixed;bottom:calc(var(--bottom-nav) + var(--safe-bottom) + 1rem);left:1rem;right:1rem;z-index:999;background:linear-gradient(90deg,#064e3b,#065f46);border:1px solid var(--ok);border-radius:14px;padding:1rem 1.25rem;display:flex;align-items:center;gap:.75rem;transform:translateY(20px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}.toast.show{transform:translateY(0);opacity:1;}.toast-icon{font-size:1.4rem;}.toast-text{flex:1;}.toast-title{font-family:var(--fhd);font-weight:700;font-size:1rem;color:var(--ok);}.toast-sub{font-size:.78rem;color:rgba(34,197,94,.7);margin-top:.1rem;}.dash-wrap{padding:1rem 1rem 2rem;max-width:640px;margin:0 auto;}.dash-hero{margin-bottom:1rem;}.dash-hero h1{font-family:var(--fhd);font-size:1.4rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);}.dash-hero p{color:var(--muted);font-size:.75rem;margin-top:.2rem;}.dash-controls{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:.85rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}.dash-controls label{font-family:var(--fhd);font-size:.72rem;font-weight:600;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;white-space:nowrap;}.dash-controls select{flex:1;min-width:140px;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.55rem .8rem;color:var(--text);font-family:var(--fbd);font-size:.9rem;outline:none;min-height:44px;-webkit-appearance:none;}.dash-actions{display:flex;gap:.5rem;width:100%;}.action-btn{flex:1;padding:.55rem .6rem;border-radius:10px;border:none;font-family:var(--fhd);font-size:.8rem;font-weight:700;letter-spacing:1px;cursor:pointer;min-height:44px;transition:opacity .2s;}.action-btn:active{opacity:.8;}.btn-export{background:rgba(0,198,255,.12);border:1px solid rgba(0,198,255,.3);color:var(--accent);}.btn-ytd{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:var(--ok);}.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1rem;}.kpi-card{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:.75rem;}.kpi-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;}.kpi-total::after{background:linear-gradient(90deg,var(--accent2),var(--accent));}.kpi-pass::after{background:var(--ok);}.kpi-ok::after{background:var(--hear);}.kpi-nok::after{background:var(--nok);}.kpi-icon{font-size:1.6rem;flex-shrink:0;}.kpi-right{display:flex;flex-direction:column;align-items:flex-end;}.kpi-val{font-family:var(--fhd);font-size:1.8rem;font-weight:700;line-height:1;color:var(--text);}.kpi-lbl{font-size:.68rem;color:var(--muted);font-weight:500;text-align:right;margin-top:.15rem;}.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;margin-bottom:.75rem;}.chart-title{font-family:var(--fhd);font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;}.progress-owner-grid{display:flex;flex-direction:column;gap:.5rem;}.progress-owner-row{display:flex;align-items:center;gap:.6rem;background:var(--panel);border-radius:10px;padding:.55rem .75rem;border:1px solid var(--border);}.progress-owner-name{font-family:var(--fhd);font-size:.82rem;font-weight:700;color:var(--text);min-width:68px;letter-spacing:.5px;}.owner-bar-wrap{flex:1;background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden;}.owner-bar-fill{height:100%;border-radius:20px;transition:width .4s ease;}.progress-count{font-family:var(--fbd);font-size:.78rem;color:var(--muted);min-width:38px;text-align:right;white-space:nowrap;}.progress-badges{display:flex;gap:.3rem;}.prog-badge{font-size:.62rem;font-weight:700;padding:.15rem .4rem;border-radius:20px;font-family:var(--fhd);letter-spacing:.5px;}.prog-pass{background:rgba(0,200,120,.18);color:#00c878;border:1px solid rgba(0,200,120,.3);}.prog-fail{background:rgba(255,80,80,.15);color:#ff5050;border:1px solid rgba(255,80,80,.25);}.prog-none{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border);}.ring-wrap{display:flex;align-items:center;gap:1.5rem;}.ring-svg{flex-shrink:0;}.ring-stats{flex:1;display:flex;flex-direction:column;gap:.5rem;}.ring-stat{display:flex;flex-direction:column;gap:.1rem;}.ring-stat-val{font-family:var(--fhd);font-size:1.4rem;font-weight:700;}.ring-stat-lbl{font-size:.72rem;color:var(--muted);}.sense-bars{display:flex;flex-direction:column;gap:.75rem;}.sense-bar-row{}.sense-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;}.sense-bar-name{font-size:.82rem;font-weight:500;}.sense-bar-pct{font-family:var(--fhd);font-size:.9rem;font-weight:700;}.sense-bar-track{height:10px;background:var(--panel);border-radius:20px;overflow:hidden;}.sense-bar-fill{height:100%;border-radius:20px;transition:width .6s cubic-bezier(.34,1.2,.64,1);}.records-list{display:flex;flex-direction:column;gap:.65rem;margin-top:.25rem;}.rec-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.85rem 1rem;position:relative;overflow:hidden;}.rec-card.pass-card{border-left:3px solid var(--ok);}.rec-card.fail-card{border-left:3px solid var(--nok);}.rec-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.6rem;}.rec-machine{font-weight:600;font-size:.95rem;}.rec-machine-sub{font-size:.72rem;color:var(--muted);margin-top:.1rem;}.rec-badges{display:flex;gap:.4rem;align-items:center;flex-shrink:0;}.badge{padding:.2rem .6rem;border-radius:20px;font-family:var(--fhd);font-size:.72rem;font-weight:700;letter-spacing:.5px;}.badge-pass{background:rgba(34,197,94,.15);color:var(--ok);border:1px solid rgba(34,197,94,.3);}.badge-fail{background:rgba(239,68,68,.15);color:var(--nok);border:1px solid rgba(239,68,68,.3);}.badge-nok{background:rgba(239,68,68,.15);color:var(--nok);}.rec-meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin-bottom:.6rem;}.rec-meta-item{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.25rem;}.rec-meta-item strong{color:var(--text);}.rec-scores{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.5rem;}.rec-score-box{background:var(--card);border-radius:8px;padding:.4rem .3rem;text-align:center;border:1px solid var(--border);}.rec-score-sense{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}.rec-score-val{font-family:var(--fhd);font-size:.88rem;font-weight:700;margin-top:.15rem;}.rec-footer{display:flex;justify-content:space-between;align-items:center;}.rec-notes{font-size:.73rem;color:var(--muted);font-style:italic;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:.5rem;}.empty-state{text-align:center;padding:3rem 1rem;color:var(--muted);}.empty-state .icon{font-size:3rem;margin-bottom:.75rem;}.empty-state h3{font-family:var(--fhd);font-size:1.1rem;color:var(--text);margin-bottom:.4rem;}.empty-state p{font-size:.85rem;}.hist-wrap{padding:1rem 1rem 2rem;max-width:640px;margin:0 auto;}.hist-hero{margin-bottom:1rem;}.hist-hero h1{font-family:var(--fhd);font-size:1.4rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);}.hist-hero p{color:var(--muted);font-size:.75rem;margin-top:.2rem;}.hist-filter{display:flex;gap:.5rem;margin-bottom:1rem;overflow-x:auto;padding-bottom:.25rem;}.hist-filter::-webkit-scrollbar{display:none;}#hist-list,#dash-records{padding-bottom:2rem;}.hist-date-row{display:flex;align-items:center;gap:.75rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.6rem .9rem;margin-bottom:.75rem;}.hist-date-label{font-family:var(--fhd);font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.5px;white-space:nowrap;}.hist-date-input-wrap{display:flex;align-items:center;gap:.5rem;flex:1;}#hist-date-filter{flex:1;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.35rem .6rem;color:var(--text);font-family:var(--fbd);font-size:.85rem;outline:none;min-width:0;}#hist-date-filter:focus{border-color:var(--accent);}.hist-date-clear{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#ef4444;border-radius:8px;padding:.3rem .65rem;font-family:var(--fhd);font-size:.75rem;font-weight:700;cursor:pointer;white-space:nowrap;}.hist-date-clear:hover{background:rgba(239,68,68,.3);}.hist-no-records{text-align:center;padding:2rem 1rem;color:var(--muted);font-family:var(--fbd);font-size:.9rem;}.hist-filter-owner{margin-top:.4rem;border-top:1px solid var(--border);padding-top:.5rem;}.filter-chip-owner{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:#a78bfa;}.filter-chip-owner.active{background:#a78bfa;border-color:#a78bfa;color:#000;}.filter-chip{flex-shrink:0;padding:.4rem .9rem;border-radius:20px;font-family:var(--fhd);font-size:.78rem;font-weight:700;letter-spacing:.5px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;}.filter-chip.active{background:rgba(0,198,255,.12);border-color:rgba(0,198,255,.4);color:var(--accent);}@media (min-width:480px){.form-hero h1{font-size:1.8rem;}.kpi-val{font-size:2.2rem;}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/wAARCAEsAlgDASIAAhEBAxEB/8QAHQABAQACAwEBAQAAAAAAAAAAAAIHCAQFBgMBCf/EAFoQAAAFAwAECAYKDQoFBAMAAAABAgMRBAUGBxIhYQgTFzFBUZOxFlRylNLhFCIjNEJWcXOBsyQyMzY3VVd0dXahstEVJic1Q1JTYpGSGCVjgtMJZJXBg6Kj/8QAGwEBAQEBAQEBAQAAAAAAAAAAAAMCAQQGBQf/xAAuEQEAAgIBAwQBAwQBBQAAAAAAAQIREgMTMUEEBSEyUWFxsSLB4fChBjM0gdH/2gAMAwEAAhEDEQA/ANMhkdGhvKFoSoq20QZT92c9AY4G39Mf2M15Bdw3SsT3Tvaa9mCeRnKfHrP2znoByM5T49Z+2c9AZ6kJG9Kp9SzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWYF5Gcp8es/bOegHIzlPj1n7Zz0BnqQkNKnUswLyM5T49Z+2c9AORnKfHrP2znoDPUhIaVOpZgXkZynx6z9s56AcjOU+PWftnPQGepCQ0qdSzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWYF5Gcp8es/bOegHIzlPj1n7Zz0BnqQkNKnUswLyM5T49Z+2c9AORnKfHrP2znoDPUhIaVOpZgXkZynx6z9s56AcjOU+PWftnPQGepCQ0qdSzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWYF5Gcp8es/bOegHIzlPj1n7Zz0BnqQkNKnUswLyM5T49Z+2c9AORnKfHrP2znoDPUhIaVOpZgXkZynx6z9s56AcjOU+PWftnPQGepCQ0qdSzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWYF5Gcp8es/bOegHIzlPj1n7Zz0BnqQkNKnUswLyM5T49Z+2c9AORnKfHrP2znoDPUhIaVOpZgXkZynx6z9s56AcjOU+PWftnPQGepCQ0qdSzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWYF5Gcp8es/bOegHIzlPj1n7Zz0BnqQkNKnUswLyM5T49Z+2c9AORnKfHrP2znoDPUhIaVOpZgXkZynx6z9s56AcjOU+PWftnPQGepCQ0qdSzAvIzlPj1n7Zz0A5Gcp8es/bOegM9SEhpU6lmBeRnKfHrP2znoByM5T49Z+2c9AZ6kJDSp1LMC8jOU+PWftnPQDkZynx6z9s56Az1ISGlTqWavZth9zxJ2lbuT1I6dSlRo9jrUqNWJmUl1jzoy3wkPftl+be70DEglaMStWcxkAAHGgAAAG3tMf2O15Bdw1CG3dN73a8gu4U40eXw+0hIkBRJUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJABUhIkAFSEiQAVISJIjMyIikz2EQKIyUaT5yOD3DmYzhzPhUhIkB11UhIkAFSEiQAYb4R/v2y/Nvd6BiQZa4Rvv2y/Nvd6BiURv3ein1AABlsAAABt1TH9jteQXcNRRtxTH9jt7fgF3CnGjy+H2kJETvCd4qkuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkJETvCd4C5CRE7wneAuQkRO8J3gLkCkzIiKTPYRF0iSkzIikzM4Ii6R2VJTkyWsra4fOfVuIeD3D1/H6Lj2t8zPaPz/h5/U+prwVzPfxD6WynJt9s1kSlmoiPqIp5h4jR4tblkr3HFKWtV4rTUpRyZnxnSPfUvvlryy7xj7R1/UNb+mK36wfi+xeo5PU+p5eTknMzEf3eL2/lty8l7W7/H93ppCRE7wnePqX6q5CRE7wneAuQkRO8J3gMO8Iz37Zvm3u9IxMMscIv37Zvm3e9IxOIX7vRT6gAAy2AAAA21pj+x2/ILuGpQ2zpj+x29vwC7hXjR5fD7SEiJ3hO8VSXISIkJAZD0FZzbcDya4V96TVHQVdHxazp2jcUhSFaxHqltMoNRbJPm2DYfFdMOi/J0IOzZzZHXF8zD1STD3Zuaq/2DTaRxLjbLXcjm4W2kqlFs1nGiNX+7n/aMWrlSt8fD+hbLrTzaXWXEOIVtJSFEZH9JCx/N5nErJTqNVB/KNvUZzNJXOI/+zH1Oy1nMjMcuQXUV0UM6S31If0aedbZbU684htCSlSlHBF8pjHmc6b9FeGsuKvGZ2xb6C964bpVL5n1ajcmX/dBDRqowq2Vhzcbne6/5+s1v/ocq34hjFCrWZtDTii2kp9RumX0GcfsDSXOpD1mmvTnlmmpDuL4dQVFhxBS4q6p84dqkkfM4ZbEp/6aTMz6TjYXS2K10lltTNtoUmTTe01K+2cUfOpW8/2EREOURkSUoIiSlJQlKSgi+Qi5gkbrXDFrTK5EvSbSyLaZpOCH5ISNMNsca0uaMrJiVit92ziyUVW3badK2XakiUk0oJJkZbjIy+gc7lz0QflFx7zshpd4P49+Ibb5skPB/HvxDbfNkho71G6PLnog/KLj3nZDq8u016JavE7xS0+kLH3HnqF9ttJVRGalG2oiIvpGoXg/j34htvmyQ8H8e/ENt82SGh1HD0XnGFWc52E4ZmfURPHI3jrNNOiejqFU9VpAsDTqSI1IVVpkpKS/YZDTamYp6VhNPSsNsMo+1bbTqpT07CHHrLTaKx836y1UVS8ZERuOskpRkXNtMdmuYYrfEtltPGl/RfetDGX2q153YquuqrS+0ww3UkpbizQcJIukzPYNZMQP+aVn/ADJvuH54P49+Ibb5skcmht9uoDWdBQU1IbhES+JbJOtHNMBWsw5a0Wbe2DS7oxsuMWaguuc2Ojqm7ewlbTtSRKSZIJJyXykZfQOXy56IPyi4952Q02rrbbK9xLldbqSqWktVKnmiUZF1FI4/g/j34htvmyQ8H8e/ENt82SM6KdR8MYqqesvOYVlG+3UUz+RVTrLqDlLiFKM0qLcZGRjvJHFoqOioWlNUNIxStqVrKQygkkZ9cF0j7yNxGISmczlchIiQkdcXISIkJAXISIkJAYy04e+rX5DnekY4GRtN3vq1+Q53pGORG3d6KfUAAGWgAAAGx7B+4o2/BLuGuA2NYP3FHkl3CnGlyeH1neE7xMhIokqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAqd4TvEyEgKneE7xMhICp3hO8TISAxpps99WvyHO9Ix0Mh6avfVs8hzvSMfCNu69OwAAMtAAAANiGD9xR5Jdw13GwrB+4o2/BLuFONPkfWQkTO8J3iialCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4CpCRM7wneAqQkTO8J3gKkJEzvCd4DHGmb31bPIc70jHwyBplP7KtvkOd6Rj8Rt3Wr2AABloAAAB6ws/v5ERF7Egv+l6x5MB2JmHJiJes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h6zlAyDrpOy9YcoGQddJ2XrHkwDaTWHrOUDIOuk7L1hygZB10nZeseTANpNYes5QMg66TsvWHKBkHXSdl6x5MA2k1h2uQ36vvq2VV3FSyRknURHPE9w6oAHHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/9k=" alt="Stärken" style="height:36px;width:auto;object-fit:contain;display:block;" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-family:Rajdhani,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:2px;color:#fff;\'>ST&#196;RKEN</span>')"/>
+  </div>
+  <div class="top-right" style="display:flex;align-items:center;gap:.5rem;">
+    <div id="sync-dot" style="width:8px;height:8px;border-radius:50%;background:#f5c518;box-shadow:0 0 6px #f5c518;flex-shrink:0;cursor:pointer;" title="Tap to test connection" onclick="testConnection()"></div>
+    <div class="top-badge" id="record-count-badge">Loading...</div>
+  </div>
+</div>
+
+<!-- ═══════════ VIEW: FORM ═══════════ -->
+<div id="view-form" class="view active" style="padding-bottom:calc(var(--bottom-nav) + 48px);">
+<div class="form-wrap">
+
+  <div class="form-hero">
+    <h1>Daily Check-In</h1>
+    <p>TPM First-Level Sensory Inspection · ISO 9001</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-bar-wrap">
+    <div class="progress-label">
+      <span>Inspection Progress</span>
+      <span class="pct" id="progress-pct">0 / 25 items</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Inspector Info -->
+  <div class="meta-card">
+    <div class="meta-card-title">👤 Inspector Info</div>
+    <div class="fields-grid">
+      <div class="field-group">
+        <label>Inspector Name (Area Owner)</label>
+        <select id="f-inspector" onchange="onInspectorChange()">
+          <option value="">-- Select Area Owner --</option>
+          <option>Arasu</option>
+          <option>Zul</option>
+          <option>Thurai</option>
+          <option>Ramesh</option>
+          <option>Sam</option>
+          <option>Fikri</option>
+          <option>Logen</option>
+          <option>Yong</option>
+          <option>Vicky</option>
+          <option>Sakib (Team Leader)</option>
+          <option>Ibrahim (Team Leader)</option>
+          <option>Sagor (Team Leader)</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Date</label>
+        <div style="position:relative;">
+          <input type="date" id="f-date" style="position:absolute;opacity:0;width:100%;height:100%;top:0;left:0;cursor:pointer;z-index:2;"/>
+          <div style="background:var(--panel);border:1.5px solid var(--border);border-radius:12px;padding:.7rem 1rem;color:var(--text);font-family:var(--fbd);font-size:.95rem;pointer-events:none;">
+            📅 <span id="f-date-text">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Time</label>
+        <div style="position:relative;">
+          <input type="time" id="f-time" style="position:absolute;opacity:0;width:100%;height:100%;top:0;left:0;cursor:pointer;z-index:2;"/>
+          <div style="background:var(--panel);border:1.5px solid var(--border);border-radius:12px;padding:.7rem 1rem;color:var(--text);font-family:var(--fbd);font-size:.95rem;pointer-events:none;">
+            🕐 <span id="f-time-text">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Machine Info -->
+  <div class="meta-card">
+    <div class="meta-card-title">🏭 Machine Info</div>
+    <div class="fields-grid">
+      <div class="field-group">
+        <label>Machine / Equipment</label>
+        <select id="f-machine" onchange="onMachineChange()">
+          <option value="">-- Select Inspector first --</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Area</label>
+        <input type="text" id="f-area" placeholder="— auto-filled —" readonly
+          style="background:rgba(0,198,255,.05);border-color:rgba(0,198,255,.25);color:var(--accent);font-weight:600;cursor:default;letter-spacing:.5px;font-size:.9rem;"/>
+      </div>
+      <div class="field-group">
+        <label>Shift</label>
+        <select id="f-shift">
+          <option value="">-- Select --</option>
+          <option>Day Shift (7am–7pm)</option>
+          <option>Night Shift (7pm–7am)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checklist injected here -->
+  <div id="checklist-container"></div>
+
+  <!-- Notes + Submit -->
+  <div class="submit-card">
+    <label>📝 Additional Notes</label>
+    <textarea id="f-notes" placeholder="Any other observations or safety concerns..." rows="3"></textarea>
+    <button class="submit-btn" onclick="submitForm()">⚡ SUBMIT INSPECTION</button>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════ VIEW: DASHBOARD ═══════════ -->
+<div id="view-dash" class="view" style="padding-bottom:calc(var(--bottom-nav) + 64px);">
+<div class="dash-wrap">
+
+  <div class="dash-hero">
+    <h1>Monthly Dashboard</h1>
+    <p>Auto-compiled from daily submissions</p>
+  </div>
+
+  <div class="dash-controls">
+    <label>Month</label>
+    <select id="month-select" onchange="renderDash()"></select>
+    <div class="dash-actions">
+      <button class="action-btn btn-export" id="monthly-btn" onclick="saveMonthlyToDrive()">☁ Save Month to Drive</button>
+      <button class="action-btn btn-ytd" id="ytd-btn" onclick="saveYTDtoDrive()">☁ Save YTD to Drive</button>
+    </div>
+  </div>
+
+  <!-- Today's Progress -->
+  <div class="chart-card" id="today-progress-card">
+    <div class="chart-title">📅 Today's Inspection Progress</div>
+    <div id="today-progress-grid"></div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid" id="kpi-grid">
+    <div class="kpi-card skeleton" style="height:72px"></div>
+    <div class="kpi-card skeleton" style="height:72px"></div>
+    <div class="kpi-card skeleton" style="height:72px"></div>
+  </div>
+
+  <!-- Pass rate -->
+  <div class="chart-card">
+    <div class="chart-title">🎯 Pass Rate</div>
+    <div class="ring-wrap" id="ring-wrap"></div>
+  </div>
+
+  <!-- Trend -->
+  <div class="chart-card">
+    <div class="chart-title">📈 Daily Results (This Month)</div>
+    <canvas id="trend-chart"></canvas>
+  </div>
+
+  <!-- PM List + Closure KPI cards -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.75rem;">
+    <div class="kpi-card" style="background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.35);border-radius:14px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem;position:relative;">
+      <div style="font-size:.68rem;color:#a78bfa;font-family:var(--fhd);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">📋 PM Pending</div>
+      <div id="dash-pm-count" style="font-family:var(--fhd);font-size:2rem;font-weight:700;color:#c4b5fd;line-height:1;">—</div>
+      <div style="font-size:.68rem;color:#64748b;">Items pending PM</div>
+    </div>
+    <div class="kpi-card" style="background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:14px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem;position:relative;">
+      <div style="font-size:.68rem;color:#f97316;font-family:var(--fhd);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🔧 PM Closure %</div>
+      <div id="dash-closure-pct" style="font-family:var(--fhd);font-size:2rem;font-weight:700;color:#fb923c;line-height:1;">—</div>
+      <div id="dash-closure-sub" style="font-size:.68rem;color:#64748b;">Issues closed</div>
+    </div>
+  </div>
+
+  <!-- Engineering closure by member -->
+  <div class="chart-card">
+    <div class="chart-title">🔧 Engineering Closure by Member</div>
+    <div id="dash-eng-members"></div>
+  </div>
+
+
+
+</div>
+</div>
+
+<!-- ═══════════ VIEW: HISTORY ═══════════ -->
+<div id="view-hist" class="view" style="padding-bottom:calc(var(--bottom-nav) + 64px);">
+<div class="hist-wrap">
+  <div class="hist-hero">
+    <h1>All Records</h1>
+    <p>Browse and manage past inspections</p>
+  </div>
+  <div class="hist-date-row">
+    <div class="hist-date-label">📅 Date</div>
+    <div class="hist-date-input-wrap">
+      <input type="date" id="hist-date-filter" onchange="applyHistDateFilter()" />
+      <button class="hist-date-clear" onclick="clearHistDateFilter()" id="hist-date-clear" style="display:none;">✕ Clear</button>
+    </div>
+  </div>
+  <div class="hist-filter" id="hist-filter">
+    <div class="filter-chip active" onclick="filterHist('all',this)">All</div>
+    <div class="filter-chip" onclick="filterHist('pass',this)">✅ Pass</div>
+    <div class="filter-chip" onclick="filterHist('fail',this)">❌ Fail</div>
+    <div class="filter-chip" onclick="filterHist('sight',this)">👁 Sight Issues</div>
+    <div class="filter-chip" onclick="filterHist('hear',this)">👂 Hearing Issues</div>
+    <div class="filter-chip" onclick="filterHist('smell',this)">👃 Smell Issues</div>
+    <div class="filter-chip" onclick="filterHist('touch',this)">✋ Touch Issues</div>
+  </div>
+  <div class="hist-filter hist-filter-owner" id="hist-filter-owner">
+    <div class="filter-chip filter-chip-owner active" onclick="filterHistOwner('all',this)">👤 All Owners</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Zul',this)">Zul</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Ramesh',this)">Ramesh</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Sam',this)">Sam</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Fikri',this)">Fikri</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Logen',this)">Logen</div>
+    <div class="filter-chip filter-chip-owner" onclick="filterHistOwner('Yong',this)">Yong</div>
+  </div>
+  <div class="records-list" id="hist-list"></div>
+</div>
+</div>
+
+<!-- BOTTOM NAV -->
+<!-- ═══════════ VIEW: ENGINEERING ═══════════ -->
+<div id="view-eng" class="view" style="padding-bottom:calc(var(--bottom-nav) + 64px);">
+<div class="eng-wrap">
+  <div class="eng-hero">
+    <h1>Engineering</h1>
+    <p>Action findings · Close issues · Track closure</p>
+  </div>
+  <div class="hist-date-row" style="margin:.5rem 1rem .25rem;">
+    <div class="hist-date-label">📅 Date</div>
+    <div class="hist-date-input-wrap">
+      <input type="date" id="eng-date-filter" onchange="applyEngDateFilter()" />
+      <button class="hist-date-clear" onclick="clearEngDateFilter()" id="eng-date-clear" style="display:none;">✕ Clear</button>
+    </div>
+  </div>
+  <div class="eng-filter-row">
+    <div class="eng-filter-chip eng-active" onclick="engFilter('open',this)">🔴 Open</div>
+    <div class="eng-filter-chip" onclick="engFilter('closed',this)">✅ Closed</div>
+    <div class="eng-filter-chip" onclick="engFilter('all',this)">All</div>
+    <div class="eng-filter-chip" id="eng-filter-pm" onclick="engFilter('pm',this)" style="background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.4);color:#a78bfa;">📋 PM List <span id="eng-pm-chip-count" style="display:none;background:#7c3aed;color:#fff;font-size:.6rem;border-radius:5px;padding:0 5px;margin-left:3px;"></span></div>
+  </div>
+  <button id="eng-refresh-btn" onclick="engRefresh()" style="
+    width:100%; margin:.5rem 0 .75rem; padding:.7rem 1rem;
+    background:rgba(0,198,255,.1); border:1.5px solid rgba(0,198,255,.3);
+    border-radius:12px; color:#00c6ff; font-family:Rajdhani,sans-serif;
+    font-size:.85rem; font-weight:700; letter-spacing:1px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:.5rem;">
+    🔄 Refresh Closed Actions from Drive
+  </button>
+  <button onclick="exportPMFromDriveSheet()" id="pm-export-drive-btn" style="
+    width:100%; margin:.25rem 0 .75rem; padding:.7rem 1rem;
+    background:rgba(124,58,237,.12); border:1.5px solid rgba(124,58,237,.4);
+    border-radius:12px; color:#a78bfa; font-family:Rajdhani,sans-serif;
+    font-size:.85rem; font-weight:700; letter-spacing:1px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:.5rem;">
+    📋 Export PM List from Drive <span id="pm-list-badge" style="background:#7c3aed;color:#fff;font-size:.65rem;border-radius:6px;padding:1px 7px;display:none;"></span>
+  </button>
+  <div id="eng-list"></div>
+</div>
+</div>
+
+<nav class="bottom-nav">
+  <button class="bnav-btn active" id="bnav-form" onclick="showView('form',this)">
+    <span class="icon">📋</span>
+    <span class="label">Check-In</span>
+  </button>
+  <button class="bnav-btn" id="bnav-dash" onclick="showView('dash',this)">
+    <span class="icon">📊</span>
+    <span class="label">Dashboard</span>
+  </button>
+  <button class="bnav-btn" id="bnav-eng" onclick="showView('eng',this)">
+    <span class="icon">🔧</span>
+    <span class="label">Engineering</span>
+  </button>
+  <button class="bnav-btn" id="bnav-hist" onclick="showView('hist',this)">
+    <span class="icon">🗂</span>
+    <span class="label">History</span>
+  </button>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">✅</div>
+  <div class="toast-text">
+    <div class="toast-title">Inspection Submitted!</div>
+    <div class="toast-sub" id="toast-sub">Record saved successfully</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Photo" onclick="event.stopPropagation()"/>
+  <div class="lightbox-toolbar">
+    <a id="lightbox-dl" href="#" download="inspection_photo.jpg" class="lightbox-dl-btn" onclick="event.stopPropagation()">
+      ⬇ Download Photo
+    </a>
+    <a id="lightbox-open" href="#" target="_blank" class="lightbox-open-btn" onclick="event.stopPropagation()">
+      🔗 Open in Drive
+    </a>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script>
+// ── DATA DEF ──────────────────────────────────────────────────
+const EQUIPMENT_DATA = {
+  "Batching": { machines: [
+    {name:"BM1",               supervisor:"Arasu"},
+    {name:"HP BM1",            supervisor:"Arasu"},
+    {name:"BM2",               supervisor:"Arasu"},
+    {name:"HP BM2",            supervisor:"Arasu"},
+    {name:"SS Pump",           supervisor:"Arasu"},
+    {name:"RS Pump",           supervisor:"Arasu"},
+    {name:"Condensate Pump",   supervisor:"Arasu"},
+    {name:"Slump Pit",         supervisor:"Arasu"},
+    {name:"MC Oil",            supervisor:"Zul"},
+    {name:"Chiller Machine",   supervisor:"Zul"},
+    {name:"Blue Tank",         supervisor:"Zul"},
+    {name:"Alu Pump",          supervisor:"Zul"},
+    {name:"Alu Tank",          supervisor:"Zul"},
+    {name:"Weighing Bucket",   supervisor:"Zul"},
+    {name:"All Screw Conveyor",supervisor:"Zul"},
+    {name:"Cold Water Tank",   supervisor:"Zul"},
+    {name:"Mixer Tank",        supervisor:"Zul"},
+    {name:"Mixer Trunk",       supervisor:"Zul"},
+    {name:"MC Lock Motor",     supervisor:"Thurai"},
+    {name:"PIT3",              supervisor:"Thurai"},
+    {name:"Silo Pump Lime / Cement", supervisor:"Thurai"}
+  ]},
+  "Precure": { machines: [
+    {name:"TC1",               supervisor:"Thurai"},
+    {name:"Pre Cure Bay",      supervisor:"Thurai"}
+  ]},
+  "MTS": { machines: [
+    {name:"Pusher 11",         supervisor:"Thurai"},
+    {name:"Pusher 12",         supervisor:"Thurai"},
+    {name:"Pusher 21",         supervisor:"Thurai"},
+    {name:"Pusher 22",         supervisor:"Thurai"},
+    {name:"MO/ MC Mechanical", supervisor:"Ramesh"},
+    {name:"Mo/MC HP",          supervisor:"Ramesh"},
+    {name:"TC2",               supervisor:"Ramesh"}
+  ]},
+  "Cutting": { machines: [
+    {name:"TM1",               supervisor:"Ramesh"},
+    {name:"HP TM1",            supervisor:"Ramesh"},
+    {name:"CT1",               supervisor:"Ramesh"},
+    {name:"CT2",               supervisor:"Ramesh"},
+    {name:"Trim Cut",          supervisor:"Ramesh"},
+    {name:"Thickness Cut",     supervisor:"Ramesh"},
+    {name:"Cross Cut",         supervisor:"Sam"},
+    {name:"HP PIT 1",          supervisor:"Sam"},
+    {name:"HP PIT 2",          supervisor:"Sam"},
+    {name:"Cake Lifter",       supervisor:"Sam"},
+    {name:"CPS 1/2/3/4",       supervisor:"Sam"},
+    {name:"CPT",               supervisor:"Sam"},
+    {name:"TM2",               supervisor:"Sam"},
+    {name:"HP TM2",            supervisor:"Sam"},
+    {name:"PUT",               supervisor:"Sam"}
+  ]},
+  "Autoclave": { machines: [
+    {name:"RLM",               supervisor:"Fikri"},
+    {name:"HP RLM",            supervisor:"Fikri"},
+    {name:"GSM",               supervisor:"Fikri"},
+    {name:"LM",                supervisor:"Fikri"},
+    {name:"HP LM",             supervisor:"Fikri"},
+    {name:"Rail 1-8 , 21/22 Drive", supervisor:"Fikri"},
+    {name:"TC3",               supervisor:"Fikri"},
+    {name:"Autoclave",         supervisor:"Fikri"},
+    {name:"Steam Trap",        supervisor:"Fikri"}
+  ]},
+  "Packing": { machines: [
+    {name:"GI",                supervisor:"Logen"},
+    {name:"HP GI",             supervisor:"Logen"},
+    {name:"UT1",               supervisor:"Logen"},
+    {name:"UT2",               supervisor:"Logen"},
+    {name:"Pack Sorter",       supervisor:"Logen"},
+    {name:"HP Pack Sorter",    supervisor:"Logen"},
+    {name:"Tilt Table",        supervisor:"Logen"},
+    {name:"HP Tilt Table",     supervisor:"Logen"},
+    {name:"Chain Conveyor",    supervisor:"Yong"},
+    {name:"Lifting Table",     supervisor:"Yong"},
+    {name:"Multiflex",         supervisor:"Yong"}
+  ]},
+  "Panel Assy": { machines: [
+    {name:"Cross Bar Machine", supervisor:"Yong"},
+    {name:"Met Welder",        supervisor:"Yong"},
+    {name:"ACM Dipping",       supervisor:"Yong"}
+  ]},
+  "Others": { machines: [
+    {name:"Grid Cleaning",     supervisor:"Yong"},
+    {name:"Crusher",           supervisor:"Yong"},
+    {name:"Drain Pump",        supervisor:"Vicky"},
+    {name:"Dry Cut Machine 1&2", supervisor:"Vicky"},
+    {name:"Air Compressor",    supervisor:"Vicky"},
+    {name:"Assy Crane",        supervisor:"Vicky"}
+  ]}
+};
+
+const SENSES = [
+  { id:'sight', label:'SIGHT',   emoji:'👁',  cls:'sense-sight', color:'#f5c518',
+    items:[
+      {id:'s1', label:'Oil / Coolant / Chemical Leaks',    criteria:'No visible leaks; drip tray dry'},
+      {id:'s2', label:'Abnormal Colour Changes',           criteria:'No yellowing, blackening or burn marks'},
+      {id:'s3', label:'Cracks / Corrosion / Deformation',  criteria:'No cracks, rust pitting or bent components'},
+      {id:'s4', label:'Misalignment / Loose Components',   criteria:'Aligned within spec; no missing fasteners'},
+      {id:'s5', label:'Gauge & Indicator Readings',        criteria:'All readings within green band / set-point'},
+      {id:'s6', label:'Cleanliness & Foreign Material',    criteria:'Clean; no foreign objects on/near machine'},
+      {id:'s7', label:'Safety Guards & Labels',            criteria:'All guards in place; labels clear and intact'},
+      {id:'s8', label:'Lubrication Level / Condition',     criteria:'Level within min–max; no dark/milky oil'},
+    ]},
+  { id:'hear', label:'HEARING',  emoji:'👂', cls:'sense-hear', color:'#22c55e',
+    items:[
+      {id:'h1', label:'Abnormal Motor / Drive Noise',      criteria:'Smooth hum; no frequency variation'},
+      {id:'h2', label:'Bearing / Gear Noise',              criteria:'No grinding, squealing or knocking'},
+      {id:'h3', label:'Air / Pneumatic Leaks',             criteria:'No audible hissing; pressure gauge stable'},
+      {id:'h4', label:'Loose Fastener Vibration',          criteria:'No metallic rattling; all covers secure'},
+      {id:'h5', label:'Cavitation in Pumps',               criteria:'No cavitation noise; flow rate normal'},
+      {id:'h6', label:'Impact / Collision Sounds',         criteria:'No impact sounds; cycle completes smoothly'},
+    ]},
+  { id:'smell', label:'SMELL',  emoji:'👃', cls:'sense-smell', color:'#f97316',
+    items:[
+      {id:'sm1', label:'Burning / Electrical Smell',       criteria:'No burning odour; panel temperature normal'},
+      {id:'sm2', label:'Overheated Lubricant Smell',       criteria:'No burnt oil smell; lube temp within spec'},
+      {id:'sm3', label:'Chemical / Solvent Leak Smell',    criteria:'No chemical odour beyond baseline'},
+      {id:'sm4', label:'Gas / Fuel Leak Smell ⚠',         criteria:'No gas odour — STOP immediately if detected'},
+      {id:'sm5', label:'Mould / Biological Contamination', criteria:'No musty smell; coolant pH within spec'},
+    ]},
+  { id:'touch', label:'TOUCH',  emoji:'✋', cls:'sense-touch', color:'#ef4444',
+    note:'Use PPE · Apply LOTO first',
+    items:[
+      {id:'t1', label:'Motor / Bearing Surface Temp',      criteria:'≤ 40°C above ambient or per OEM spec'},
+      {id:'t2', label:'Excessive Vibration – Rotating',    criteria:'Smooth; vibration ≤ ISO 10816 limit'},
+      {id:'t3', label:'Pipe / Hose Temperature',           criteria:'Within normal operating temp range'},
+      {id:'t4', label:'Fastener Tightness (after LOTO)',   criteria:'No movement; torque within spec'},
+      {id:'t5', label:'Control Panel / Switchgear Temp',   criteria:'Ambient + ≤ 10°C; no localised hot spots'},
+      {id:'t6', label:'Surface Finish – Product / Tooling',criteria:'Smooth; no burrs, chipping or roughness'},
+    ]},
+];
+const TOTAL_ITEMS = SENSES.reduce((a,s) => a + s.items.length, 0);
+
+let results = {};
+let trendChart = null, nokChart = null;
+let histFilter = 'all';
+let histOwnerFilter = 'all';
+let histDateFilter = '';
+
+// ── GOOGLE APPS SCRIPT BACKEND ───────────────────────────────
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxUvSFruZ1Ulcu8bfPkNUgx7KPItPrqxqpcGR9KxwH4jYfl_m23FBGlJ8452wFQgA/exec';
+const GAS_CONFIGURED = GAS_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+// ── PERSISTENT CACHE (localStorage) ──────────────────────────
+// Saves records to device so the app loads instantly on next open
+const CACHE_TTL   = 900000; // 15 min — reduces GAS calls
+const LS_PREFIX   = '4senses_cache_';
+
+let _cache      = null;
+let _cacheMonth = null;
+let _cacheTime  = 0;
+
+function lsGet(month) {
+  try {
+    const raw = localStorage.getItem(LS_PREFIX + month);
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    return obj; // { records, time }
+  } catch(e) { return null; }
+}
+
+function lsSet(month, records) {
+  try {
+    localStorage.setItem(LS_PREFIX + month, JSON.stringify({ records, time: Date.now() }));
+    // Keep only last 3 months on device to manage storage
+    const allKeys = Object.keys(localStorage).filter(k => k.startsWith(LS_PREFIX));
+    if (allKeys.length > 3) {
+      allKeys.sort().slice(0, allKeys.length - 3).forEach(k => localStorage.removeItem(k));
+    }
+  } catch(e) {} // storage full — silently skip
+}
+
+async function loadRecords(month) {
+  if (!month) month = getCurrentMonth();
+
+  // 1. Return in-memory cache if fresh
+  const memValid = _cache && _cacheMonth === month;
+  if (memValid && (Date.now() - _cacheTime < CACHE_TTL)) return _cache;
+
+  if (!GAS_CONFIGURED) return [];
+
+  // 2. Check localStorage — use it IMMEDIATELY for instant display
+  const stored = lsGet(month);
+  if (stored) {
+    _cache      = stored.records;
+    _cacheMonth = month;
+    _cacheTime  = stored.time;
+    const age   = Date.now() - stored.time;
+    if (age < CACHE_TTL) {
+      // Fresh enough — return instantly, no network call
+      return _cache;
+    } else {
+      // Stale — return stored data instantly, refresh in background
+      refreshInBackground(month);
+      return _cache;
+    }
+  }
+
+  // 3. No local data at all — must fetch
+  return await fetchRecords(month);
+}
+
+function refreshInBackground(month) {
+  fetchRecords(month).then(() => {
+    if (document.getElementById('view-dash').classList.contains('active')) renderDash();
+    if (document.getElementById('view-hist').classList.contains('active')) renderHist();
+  }).catch(() => {});
+}
+
+async function fetchRecords(month) {
+  try {
+    showSyncStatus('syncing');
+    const data  = await gasRequest({ action: 'getRecords', month });
+    _cache      = data.records || [];
+    _cacheMonth = month;
+    _cacheTime  = Date.now();
+    lsSet(month, _cache); // persist to device
+    showSyncStatus('ok');
+    return _cache;
+  } catch(e) {
+    showSyncStatus('error');
+    console.error('Load error:', e);
+    return _cache || [];
+  }
+}
+
+function getCurrentMonth() {
+  const n = new Date();
+  return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;
+}
+
+async function saveRecords(recs) {
+  _cache = recs; _cacheTime = Date.now();
+  lsSet(_cacheMonth || getCurrentMonth(), recs);
+  await updateBadge();
+}
+
+function gasRequest(payload) {
+  return new Promise((resolve, reject) => {
+    const hasPhotos = payload.record && payload.record.photos &&
+                      Object.keys(payload.record.photos || {}).length > 0;
+
+    const forcePost = ['submit','generateMonthly','generateYTD','saveEngClosure','syncAllClosures','getEngClosures','savePMItem','removePMItem','getPMList','updatePMStatus'];
+    if (!hasPhotos && !forcePost.includes(payload.action)) {
+      const encoded = encodeURIComponent(JSON.stringify(payload));
+      const url = GAS_URL + '?payload=' + encoded;
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.setRequestHeader('Connection', 'keep-alive');
+      xhr.timeout = 15000; // 15s is plenty for read requests
+      xhr.onload = () => {
+        if (xhr.status === 0) { reject(new Error('Blocked (status 0)')); return; }
+        try { resolve(JSON.parse(xhr.responseText)); }
+        catch(e) { reject(new Error('Bad response: ' + xhr.responseText.slice(0,100))); }
+      };
+      xhr.onerror = () => reject(new Error('Network error'));
+      xhr.ontimeout = () => reject(new Error('Timeout'));
+      xhr.send();
+      return;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', GAS_URL, true);
+    xhr.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');
+    xhr.timeout = 180000;
+    xhr.onload = () => {
+      if (xhr.status === 0) { reject(new Error('Blocked (status 0) — try opening app in Chrome browser')); return; }
+      try { resolve(JSON.parse(xhr.responseText)); }
+      catch(e) {
+        const htmlErr = xhr.responseText.match(/<title>(.*?)<\/title>/i);
+        reject(new Error(htmlErr ? htmlErr[1] : 'Bad response: ' + xhr.responseText.slice(0,120)));
+      }
+    };
+    xhr.onerror   = () => reject(new Error('Network blocked — open the HTML file in Chrome, not WhatsApp'));
+    xhr.ontimeout = () => reject(new Error('Timed out — report generation took too long. Try again, or check your internet connection.'));
+    xhr.send(JSON.stringify(payload));
+  });
+}
+
+async function submitToGAS(record) {
+  if (!GAS_CONFIGURED) {
+    return { success: false, error: 'GAS not configured' };
+  }
+  try {
+    showSyncStatus('syncing');
+    const data = await gasRequest({ action: 'submit', record });
+    _cache = null;
+    try { localStorage.removeItem(LS_PREFIX + getCurrentMonth()); } catch(e) {}
+    await updateBadge();
+    showSyncStatus('ok');
+    return data;
+  } catch(e) {
+    showSyncStatus('error');
+    console.error('Submit error:', e);
+    return { success: false, error: e.toString() };
+  }
+}
+
+async function updateBadge() {
+  // Cache-only — never fire a network call just for the badge
+  const month = getCurrentMonth();
+  let recs = (_cache && _cacheMonth === month) ? _cache : null;
+  if (!recs) {
+    const stored = lsGet(month);
+    if (stored) { recs = stored.records; _cache = recs; _cacheMonth = month; _cacheTime = stored.time; }
+  }
+  const n = recs ? recs.length : 0;
+  const badge = document.getElementById('record-count-badge');
+  if (badge) badge.textContent = `${n} Record${n!==1?'s':''}`;
+}
+
+async function showSyncStatus(state) {
+  const dot = document.getElementById('sync-dot');
+  if (!dot) return;
+  dot.style.background = state === 'ok' ? '#22c55e' : state === 'syncing' ? '#f5c518' : '#ef4444';
+  dot.style.boxShadow  = state === 'ok' ? '0 0 6px #22c55e' : state === 'syncing' ? '0 0 6px #f5c518' : '0 0 6px #ef4444';
+  dot.title            = state === 'ok' ? 'Google Drive connected' : state === 'syncing' ? 'Syncing...' : 'Sync error — check URL';
+}
+
+setInterval(() => {
+  // Silent background refresh — only when app is visible AND no active input/submit
+  if (document.hidden) return;
+  const month = getCurrentMonth();
+  fetchRecords(month).then(recs => {
+    updateBadge();
+    // Only re-render if user is actively viewing that tab (not mid-form)
+    if (document.getElementById('view-dash')?.classList.contains('active')) renderDash(recs);
+    if (document.getElementById('view-hist')?.classList.contains('active')) renderHist();
+  }).catch(() => {});
+}, 180000); // every 3 minutes
+
+// ── BUILD FORM ────────────────────────────────────────────────
+function buildForm() {
+  const container = document.getElementById('checklist-container');
+  SENSES.forEach((sense, si) => {
+    const sec = document.createElement('div');
+    sec.className = `sense-section ${sense.cls}`;
+    sec.id = `sense-sec-${sense.id}`;
+    if (si === 0) sec.classList.add('open');
+
+    let html = `
+      <div class="sense-header" onclick="toggleSense('${sense.id}')">
+        <div class="s-badge">${sense.emoji}</div>
+        <div class="s-info">
+          <span class="s-name">SENSE ${si+1} · ${sense.label}</span>
+          ${sense.note ? `<span class="s-note">⚠ ${sense.note}</span>` : ''}
+        </div>
+        <span class="s-count" id="sense-count-${sense.id}">0 / ${sense.items.length}</span>
+        <span class="s-chevron">▼</span>
+      </div>
+      <div class="sense-body">`;
+
+    sense.items.forEach((item, idx) => {
+      html += `
+        <div class="check-item" id="row-${item.id}">
+          <div class="check-top">
+            <div class="check-num">${idx+1}</div>
+            <div class="check-text">
+              <strong>${item.label}</strong>
+              <span class="criteria">Standard: ${item.criteria}</span>
+            </div>
+          </div>
+          <div class="radio-group">
+            <label class="radio-btn">
+              <input type="radio" name="${item.id}" value="ok" onchange="setResult('${item.id}','ok','${sense.id}')"/>
+              <div class="radio-pill ok-pill"><span class="p-icon">✓</span><span class="p-label">OK</span></div>
+            </label>
+            <label class="radio-btn">
+              <input type="radio" name="${item.id}" value="nok" onchange="setResult('${item.id}','nok','${sense.id}')"/>
+              <div class="radio-pill nok-pill"><span class="p-icon">✗</span><span class="p-label">NOT OK</span></div>
+            </label>
+            <label class="radio-btn">
+              <input type="radio" name="${item.id}" value="na" onchange="setResult('${item.id}','na','${sense.id}')"/>
+              <div class="radio-pill na-pill"><span class="p-icon">—</span><span class="p-label">N/A</span></div>
+            </label>
+          </div>
+          <div class="remark-box" id="remark-${item.id}">
+            <div class="remark-header"><span class="dot"></span><span class="remark-label"></span></div>
+            <textarea rows="2" placeholder="Add remark for: ${item.label}..." id="txt-${item.id}"></textarea>
+          </div>
+          <div class="photo-upload-wrap" id="photo-wrap-${item.id}">
+            <div class="photo-upload-label">📷 Photo Evidence <span id="photo-req-${item.id}" style="font-size:.68rem;background:var(--nok);color:#fff;font-family:var(--fhd);font-weight:700;letter-spacing:.8px;padding:.15rem .5rem;border-radius:4px;margin-left:.4rem;">(REQUIRED)</span></div>
+            <label class="photo-upload-btn">
+              <input type="file" accept="image/*" capture="environment" multiple
+                onchange="handlePhotos('${item.id}', this)"/>
+              📷 &nbsp;Tap to take / upload photo
+            </label>
+            <div class="photo-previews" id="photo-previews-${item.id}"></div>
+          </div>
+        </div>`;
+    });
+
+    html += `</div>`;
+    sec.innerHTML = html;
+    container.appendChild(sec);
+  });
+}
+
+function toggleSense(id) {
+  document.getElementById(`sense-sec-${id}`).classList.toggle('open');
+}
+
+function setResult(itemId, val, senseId) {
+  // Block if any OTHER item is NOK with no photo uploaded yet
+  const allItems = SENSES.flatMap(s => s.items);
+  const blocker = allItems.find(it =>
+    it.id !== itemId &&
+    results[it.id] === 'nok' &&
+    (!photosData[it.id] || photosData[it.id].length === 0)
+  );
+  if (blocker) {
+    // Uncheck the radio they just clicked — restore old value or unchecked
+    const clickedRadio = document.querySelector(`input[name="${itemId}"][value="${val}"]`);
+    if (clickedRadio) clickedRadio.checked = false;
+    if (results[itemId]) {
+      const prevRadio = document.querySelector(`input[name="${itemId}"][value="${results[itemId]}"]`);
+      if (prevRadio) prevRadio.checked = true;
+    }
+    // Flash the blocking item's photo section
+    const photoEl = document.getElementById('photo-wrap-' + blocker.id);
+    if (photoEl) {
+      photoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      photoEl.style.outline = '3px solid #ef4444';
+      setTimeout(() => photoEl.style.outline = '', 2000);
+    }
+    // Show error toast
+    showToastMsg('📷 Upload photo for "' + blocker.label + '" before continuing.', 'error');
+    return;
+  }
+
+  results[itemId] = val;
+  const row = document.getElementById(`row-${itemId}`);
+  row.classList.remove('checked-ok','checked-nok','checked-na');
+  row.classList.add(`checked-${val}`);
+
+  const remark = document.getElementById(`remark-${itemId}`);
+  remark.classList.remove('remark-ok','remark-nok','remark-na');
+  remark.classList.add(`remark-${val}`);
+  remark.classList.add('show');
+
+  const labelMap = {
+    ok:  '✓ OK  —  Add remark (optional)',
+    nok: '✗ NOT OK  —  Describe the issue (required)',
+    na:  '—  N/A  —  Reason (optional)'
+  };
+  const labelEl = remark.querySelector('.remark-label');
+  if (labelEl) labelEl.textContent = labelMap[val];
+
+  const photoWrap = document.getElementById(`photo-wrap-${itemId}`);
+  if (photoWrap) {
+    if (val === 'nok') {
+      photoWrap.classList.add('show');
+      if (!photosData[itemId] || photosData[itemId].length === 0) {
+        photoWrap.classList.add('photo-required');
+        const reqBadge = document.getElementById('photo-req-' + itemId);
+        if (reqBadge) reqBadge.style.display = '';
+      }
+    } else {
+      photoWrap.classList.remove('show', 'photo-required');
+    }
+  }
+
+  if (val === 'nok') {
+    setTimeout(() => remark.querySelector('textarea')?.focus(), 150);
+  }
+
+  updateProgress();
+  updateSenseCount(senseId);
+  autoAdvanceSense(senseId);
+}
+
+function updateProgress() {
+  const done = Object.keys(results).length;
+  const pct  = Math.round(done / TOTAL_ITEMS * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = `${done} / ${TOTAL_ITEMS} items`;
+}
+
+function updateSenseCount(senseId) {
+  const sense = SENSES.find(s => s.id === senseId);
+  const done  = sense.items.filter(i => results[i.id]).length;
+  document.getElementById(`sense-count-${senseId}`).textContent = `${done} / ${sense.items.length}`;
+}
+
+function autoAdvanceSense(senseId) {
+  const sense = SENSES.find(s => s.id === senseId);
+  const allDone = sense.items.every(i => results[i.id]);
+  if (!allDone) return;
+  const idx = SENSES.indexOf(sense);
+  if (idx < SENSES.length - 1) {
+    const nextId  = SENSES[idx+1].id;
+    const nextSec = document.getElementById(`sense-sec-${nextId}`);
+    if (!nextSec.classList.contains('open')) {
+      nextSec.classList.add('open');
+      setTimeout(() => nextSec.scrollIntoView({behavior:'smooth', block:'start'}), 200);
+    }
+  }
+}
+
+// ── PHOTO HANDLING ───────────────────────────────────────────
+const photosData = {};
+
+// Multi-pass compression — keeps reducing quality until file is under TARGET_KB
+const PHOTO_MAX_PX  = 800;    // max dimension px (long edge)
+const PHOTO_TARGET  = 80000;  // target bytes (~80 KB)
+const PHOTO_MIN_Q   = 0.15;   // never go below this quality
+
+async function compressImageTo(file, maxPx, targetBytes, minQ) {
+  // Parameterized compression — maxPx, targetBytes, minQ
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const scale  = Math.min(1, maxPx / Math.max(img.width, img.height));
+        const w = Math.round(img.width  * scale);
+        const h = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        let q = 0.55;
+        let b64 = canvas.toDataURL('image/jpeg', q);
+        while (b64.length * 0.75 > targetBytes && q > minQ) {
+          q = Math.max(minQ, q - 0.08);
+          b64 = canvas.toDataURL('image/jpeg', q);
+        }
+        // Still too big — shrink dimensions further
+        if (b64.length * 0.75 > targetBytes) {
+          const c2 = document.createElement('canvas');
+          c2.width = Math.round(w * 0.5); c2.height = Math.round(h * 0.5);
+          c2.getContext('2d').drawImage(canvas, 0, 0, c2.width, c2.height);
+          b64 = c2.toDataURL('image/jpeg', minQ);
+        }
+        resolve(b64);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function compressImage(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const scale  = Math.min(1, PHOTO_MAX_PX / Math.max(img.width, img.height));
+        const w = Math.round(img.width  * scale);
+        const h = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+
+        // Pass 1 — try quality 0.65
+        let q   = 0.65;
+        let b64 = canvas.toDataURL('image/jpeg', q);
+
+        // Each base64 char is ~0.75 bytes
+        while (b64.length * 0.75 > PHOTO_TARGET && q > PHOTO_MIN_Q) {
+          q = Math.max(PHOTO_MIN_Q, q - 0.10);
+          b64 = canvas.toDataURL('image/jpeg', q);
+        }
+
+        // If still too big after quality reduction, halve the dimensions
+        if (b64.length * 0.75 > PHOTO_TARGET) {
+          const c2 = document.createElement('canvas');
+          c2.width = Math.round(w * 0.6); c2.height = Math.round(h * 0.6);
+          c2.getContext('2d').drawImage(canvas, 0, 0, c2.width, c2.height);
+          b64 = c2.toDataURL('image/jpeg', 0.5);
+        }
+
+        const kb = Math.round(b64.length * 0.75 / 1024);
+        console.log(`Photo compressed: ${kb} KB  q=${q.toFixed(2)}`);
+        resolve(b64);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handlePhotos(itemId, input) {
+  if (!photosData[itemId]) photosData[itemId] = [];
+  const files   = Array.from(input.files);
+  const preview = document.getElementById(`photo-previews-${itemId}`);
+  for (const file of files) {
+    // Show placeholder while compressing
+    const placeholder = document.createElement('div');
+    placeholder.className = 'photo-thumb';
+    placeholder.style.cssText = 'display:flex;align-items:center;justify-content:center;background:var(--panel);font-size:.65rem;color:var(--muted);';
+    placeholder.textContent = '⏳';
+    preview.appendChild(placeholder);
+
+    const b64 = await compressImage(file);
+    const kb  = Math.round(b64.length * 0.75 / 1024);
+    photosData[itemId].push(b64);
+    const idx = photosData[itemId].length - 1;
+    // Remove required indicator once photo is added
+    const reqBadge = document.getElementById('photo-req-' + itemId);
+    if (reqBadge) reqBadge.style.display = 'none';
+    const photoWrapEl = document.getElementById('photo-wrap-' + itemId);
+    if (photoWrapEl) photoWrapEl.classList.remove('photo-required');
+
+    placeholder.className = 'photo-thumb';
+    placeholder.style.cssText = '';
+    placeholder.innerHTML = `
+      <img src="${b64}" onclick="openLightbox(photosData['${itemId}'][${idx}], photosData['${itemId}'], ${idx})"/>
+      <button class="remove-photo" onclick="removePhoto('${itemId}',${idx},this.parentElement)">✕</button>
+      <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);font-size:.55rem;color:#fff;text-align:center;padding:1px 0;">${kb}KB</div>`;
+  }
+  input.value = '';
+}
+
+function removePhoto(itemId, idx, thumbEl) {
+  photosData[itemId].splice(idx, 1);
+  thumbEl.remove();
+  const preview = document.getElementById(`photo-previews-${itemId}`);
+  preview.querySelectorAll('.remove-photo').forEach((btn, i) => {
+    btn.setAttribute('onclick', `removePhoto('${itemId}',${i},this.parentElement)`);
+  });
+}
+
+let _galleryUrls = [];
+let _galleryIdx  = 0;
+
+function openLightbox(src, allSrcs, idx) {
+  _galleryUrls = allSrcs || [src];
+  _galleryIdx  = idx    || 0;
+  showLightboxImage(_galleryUrls[_galleryIdx], _galleryIdx, _galleryUrls.length);
+  document.getElementById('lightbox').classList.add('show');
+  document.addEventListener('keydown', lightboxKeyHandler);
+}
+
+function showLightboxImage(src, idx, total) {
+  const img     = document.getElementById('lightbox-img');
+  const dlBtn   = document.getElementById('lightbox-dl');
+  const openBtn = document.getElementById('lightbox-open');
+  const counter = document.getElementById('lightbox-counter');
+
+  img.src = driveThumbSrc(src).replace('sz=w400', 'sz=w1200').replace('=w400', '=w1200');
+  img.onerror = function() {
+    const id = extractDriveFileId(src);
+    if (id && !this.src.includes('lh3')) {
+      this.src = `https://lh3.googleusercontent.com/d/${id}=w1200`;
+      this.onerror = null;
+    }
+  };
+
+  const isDrive = src.startsWith('https://');
+  if (isDrive) {
+    dlBtn.href  = driveDownloadUrl(src);
+    openBtn.href = src;
+    openBtn.style.display = '';
+  } else {
+    dlBtn.href  = src;
+    openBtn.style.display = 'none';
+  }
+
+  dlBtn.download = `inspection_photo_${idx+1}.jpg`;
+  counter.textContent = total > 1 ? `${idx+1} / ${total}` : '';
+}
+
+function extractDriveFileId(url) {
+  const patterns = [
+    /\/file\/d\/([a-zA-Z0-9_-]{25,})/,
+    /[?&]id=([a-zA-Z0-9_-]{25,})/,
+    /\/d\/([a-zA-Z0-9_-]{25,})/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  const m = url.match(/[a-zA-Z0-9_-]{25,}/);
+  return m ? m[0] : null;
+}
+
+function driveThumbSrc(src) {
+  if (!src || !src.startsWith('https://')) return src;
+  const id = extractDriveFileId(src);
+  if (!id) return src;
+  // Primary: drive thumbnail (works for public files, no auth needed)
+  return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+}
+
+function driveDownloadUrl(src) {
+  if (!src || !src.startsWith('https://')) return src;
+  const id = extractDriveFileId(src);
+  return id ? `https://drive.google.com/uc?export=download&id=${id}` : src;
+}
+
+function lightboxKeyHandler(e) {
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowRight') lightboxNext();
+  if (e.key === 'ArrowLeft')  lightboxPrev();
+}
+
+function lightboxNext() {
+  if (_galleryIdx < _galleryUrls.length - 1) { _galleryIdx++; showLightboxImage(_galleryUrls[_galleryIdx], _galleryIdx, _galleryUrls.length); }
+}
+function lightboxPrev() {
+  if (_galleryIdx > 0) { _galleryIdx--; showLightboxImage(_galleryUrls[_galleryIdx], _galleryIdx, _galleryUrls.length); }
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+  document.getElementById('lightbox-img').src = '';
+  document.getElementById('lightbox-dl').href = '#';
+  document.removeEventListener('keydown', lightboxKeyHandler);
+  _galleryUrls = []; _galleryIdx = 0;
+}
+
+let _swipeX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => { _swipeX = e.touches[0].clientX; }, { passive: true });
+document.getElementById('lightbox').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - _swipeX;
+  if (Math.abs(dx) > 50) { dx < 0 ? lightboxNext() : lightboxPrev(); }
+  else if (Math.abs(dx) < 10) closeLightbox();
+}, { passive: true });
+
+function updateDateTimeDisplay() {
+  const dateVal  = document.getElementById('f-date').value;
+  const timeVal  = document.getElementById('f-time').value;
+  const dateText = document.getElementById('f-date-text');
+  const timeText = document.getElementById('f-time-text');
+  if (dateText) dateText.textContent = dateVal || '—';
+  if (timeText && timeVal) {
+    const [h, m] = timeVal.split(':').map(Number);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12  = h % 12 || 12;
+    timeText.textContent = `${String(h12).padStart(2,'0')}:${String(m).padStart(2,'0')} ${ampm}`;
+  }
+}
+
+async function testConnection() {
+  showSyncStatus('syncing');
+  const dot = document.getElementById('sync-dot');
+  dot.title = 'Testing…';
+  try {
+    const data = await gasRequest({ action: 'ping' });
+    showSyncStatus('ok');
+    dot.title = 'Connected ✓';
+    alert('✅ Connection OK!\nServer time: ' + (data.time || 'unknown'));
+  } catch(e) {
+    showSyncStatus('error');
+    dot.title = 'Failed';
+    alert('❌ Connection failed:\n' + e.message + '\n\nTry opening this URL in your browser:\n' + GAS_URL + '?action=ping');
+  }
+}
+
+async function submitForm() {
+  const area       = document.getElementById('f-area').value.trim();
+  const machine    = document.getElementById('f-machine').value.trim();
+  const shift      = document.getElementById('f-shift').value;
+  const inspector  = document.getElementById('f-inspector').value;
+  const date       = document.getElementById('f-date').value;
+  const time       = document.getElementById('f-time').value;
+  const notes      = document.getElementById('f-notes').value.trim();
+
+  // Derive supervisor from selected machine in EQUIPMENT_DATA
+  let supervisor = '';
+  if (area && machine && EQUIPMENT_DATA[area]) {
+    const found = EQUIPMENT_DATA[area].machines.find(m => m.name === machine);
+    supervisor = found ? found.supervisor : inspector;
+  }
+
+  if (!area || !machine || !inspector || !date || !time || !shift) {
+    alert('⚠ Please fill in Inspector, Machine, Shift, Date and Time.');
+    return;
+  }
+
+  const senseScores = {};
+  let totalOK = 0, totalNOK = 0, totalNA = 0;
+  const remarks = {};
+  const photos  = {};
+
+  SENSES.forEach(sense => {
+    let ok=0, nok=0, na=0;
+    sense.items.forEach(item => {
+      const v = results[item.id];
+      if (v==='ok')  { ok++;  totalOK++; }
+      if (v==='nok') {
+        nok++; totalNOK++;
+        remarks[item.label] = document.getElementById(`txt-${item.id}`)?.value || '';
+        if (photosData[item.id]?.length) photos[item.label] = photosData[item.id];
+      }
+      if (v==='na')  { na++;  totalNA++; }
+    });
+    senseScores[sense.id] = { ok, nok, na, total: sense.items.length };
+  });
+
+  const rec = {
+    id: Date.now(), date, time, machine, macname: machine, dept: area, area, supervisor, shift, inspector, notes,
+    senseScores, totalOK, totalNOK, totalNA,
+    pass: totalNOK === 0, remarks, photos
+  };
+
+  const btn = document.querySelector('.submit-btn');
+  const photoTotal = Object.values(photosData).reduce((a,v)=>a+v.length,0);
+  btn.textContent = photoTotal > 0 ? `⏳ Uploading ${photoTotal} photo${photoTotal>1?'s':''}…` : '⏳ Saving…';
+  btn.disabled = true;
+
+  const result = await submitToGAS(rec);
+  if (!result.success && GAS_CONFIGURED) {
+    btn.textContent = '⚡ SUBMIT INSPECTION'; btn.disabled = false;
+    alert('⚠ Save failed:\n' + (result.error || result.message || JSON.stringify(result)) + '\n\nPlease screenshot this and report to admin.');
+    return;
+  }
+  btn.textContent = '⚡ SUBMIT INSPECTION'; btn.disabled = false;
+
+  results = {};
+  document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+  document.querySelectorAll('.remark-box').forEach(r => r.classList.remove('show','remark-ok','remark-nok','remark-na'));
+  document.querySelectorAll('.remark-box textarea').forEach(t => t.value = '');
+  document.querySelectorAll('.check-item').forEach(r => r.classList.remove('checked-ok','checked-nok','checked-na'));
+  document.querySelectorAll('.s-count').forEach((el,i) => el.textContent = `0 / ${SENSES[i]?.items.length}`);
+  document.getElementById('f-notes').value = '';
+  document.getElementById('f-area').value = '';
+  document.getElementById('f-inspector').value = '';
+  Object.keys(photosData).forEach(k => delete photosData[k]);
+  document.querySelectorAll('.photo-previews').forEach(p => p.innerHTML = '');
+  document.querySelectorAll('.photo-upload-wrap').forEach(p => p.classList.remove('show'));
+  document.getElementById('f-machine').innerHTML = '<option value="">-- Select Inspector first --</option>';
+  document.getElementById('f-area').value = '';
+  updateProgress();
+
+  document.getElementById('toast-sub').textContent = `${totalOK} OK · ${totalNOK} NOT OK · ${totalNA} N/A · ${rec.pass ? 'PASS ✅' : 'FAIL ❌'}`;
+  showToast();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.remove('toast-error');
+  t.querySelector('.toast-icon').textContent = '✅';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+function showToastMsg(msg, type) {
+  const t = document.getElementById('toast');
+  t.classList.remove('toast-error');
+  if (type === 'error') {
+    t.classList.add('toast-error');
+    t.querySelector('.toast-icon').textContent = '📷';
+  }
+  t.querySelector('.toast-title') && (t.querySelector('.toast-title').textContent = type === 'error' ? 'Photo Required' : 'Notice');
+  document.getElementById('toast-sub').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── DASHBOARD ─────────────────────────────────────────────────
+async function populateMonthSelector() {
+  const sel  = document.getElementById('month-select');
+  const curM = getCurrentMonth();
+
+  // Build dropdown INSTANTLY from localStorage — no network wait
+  const lsMonths = Object.keys(localStorage)
+    .filter(k => k.startsWith(LS_PREFIX))
+    .map(k => k.replace(LS_PREFIX, ''))
+    .filter(m => /^\d{4}-\d{2}$/.test(m));
+
+  let allMonths = lsMonths.length ? lsMonths : [];
+  if (!allMonths.includes(curM)) allMonths.push(curM);
+  allMonths = [...new Set(allMonths)].sort().reverse();
+
+  const cur = sel.value || curM;
+  sel.innerHTML = allMonths.map(m => `<option value="${m}"${m===cur?' selected':''}>${fmtMonth(m)}</option>`).join('');
+
+  // 1. Return cache immediately — NEVER await network here
+  const selectedMonth = sel.value || curM;
+  let recs = null;
+  if (_cache && _cacheMonth === selectedMonth) {
+    recs = _cache; // in-memory hit
+  } else {
+    const stored = lsGet(selectedMonth);
+    if (stored) { recs = stored.records; _cache = recs; _cacheMonth = selectedMonth; _cacheTime = stored.time; }
+  }
+  if (!recs) recs = []; // nothing cached yet — background will fill
+
+  // 2. Background: fetch records if stale + discover new months from GAS
+  const staleThreshold = 5 * 60 * 1000;
+  const cacheAge = (_cacheTime && _cacheMonth === selectedMonth) ? Date.now() - _cacheTime : Infinity;
+  if (cacheAge > staleThreshold) {
+    fetchRecords(selectedMonth).then(fresh => {
+      if (document.getElementById('view-dash')?.classList.contains('active')) renderDash(fresh);
+    }).catch(() => {});
+  }
+  gasRequest({ action: 'getYTD', year: curM.slice(0,4) }).then(ytd => {
+    if (!ytd.months?.length) return;
+    let updated = ytd.months.slice();
+    if (!updated.includes(curM)) updated.push(curM);
+    updated = [...new Set(updated)].sort().reverse();
+    if (updated.length !== allMonths.length || updated.some((m,i) => m !== allMonths[i])) {
+      const v = sel.value;
+      sel.innerHTML = updated.map(m => `<option value="${m}"${m===v?' selected':''}>${fmtMonth(m)}</option>`).join('');
+    }
+  }).catch(() => {});
+
+  return recs;
+}
+
+function fmtMonth(ym) {
+  const [y,m] = ym.split('-');
+  return new Date(y,m-1).toLocaleString('default',{month:'long',year:'numeric'});
+}
+
+async function renderDash(preloadedRecs) {
+  const ym = document.getElementById('month-select').value;
+
+  // Paint skeleton KPIs immediately so screen isn't blank
+  const kpiGrid = document.getElementById('kpi-grid');
+  if (kpiGrid && !preloadedRecs) {
+    kpiGrid.innerHTML = `
+    <div class="kpi-card kpi-total"><div class="kpi-icon">📋</div><div class="kpi-right"><div class="kpi-val skeleton" style="width:40px;height:24px;border-radius:4px;display:inline-block"></div><div class="kpi-lbl">Inspections</div></div></div>
+    <div class="kpi-card kpi-pass"><div class="kpi-icon">🎯</div><div class="kpi-right"><div class="kpi-val skeleton" style="width:48px;height:24px;border-radius:4px;display:inline-block"></div><div class="kpi-lbl">Pass Rate</div></div></div>
+    <div class="kpi-card kpi-nok"><div class="kpi-icon">⚠️</div><div class="kpi-right"><div class="kpi-val skeleton" style="width:32px;height:24px;border-radius:4px;display:inline-block"></div><div class="kpi-lbl">NOT OK Found</div></div></div>
+    <div class="kpi-card kpi-eng"><div class="kpi-icon">🔧</div><div class="kpi-right"><div class="kpi-val">…</div><div class="kpi-lbl">Eng Closure</div></div></div>`;
+  }
+
+  // Load records — instant if cached
+  const recs = preloadedRecs || await loadRecords(ym);
+
+  // Preload eng closures from localStorage (non-blocking)
+  loadEngClosures(ym, true);
+
+  // Render everything from cache immediately
+  renderKPIsFromCache(recs);
+  renderTodayProgress(recs);
+  renderRing(recs);
+  renderTrend(recs, ym);
+  renderEngMembers(recs);
+  renderDashPMKPIs(recs);
+}
+
+function renderEngMembers(recs) {
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+  const el = document.getElementById('dash-eng-members');
+  if (!el) return;
+
+  // Get closure data from localStorage
+  let closures = {};
+  try {
+    const stored = localStorage.getItem('4senses_eng_' + ym);
+    if (stored) closures = JSON.parse(stored);
+  } catch(e) {}
+
+  const closureList = Object.values(closures);
+  if (!closureList.length) {
+    el.innerHTML = '<div style="text-align:center;color:#64748b;padding:1rem;font-size:.82rem;">No closures recorded yet this month.</div>';
+    return;
+  }
+
+  // Count closures per engineer
+  const memberMap = {};
+  closureList.forEach(cl => {
+    const eng = cl.engineer || 'Unknown';
+    if (!memberMap[eng]) memberMap[eng] = 0;
+    memberMap[eng]++;
+  });
+
+  const total = closureList.length;
+  const sorted = Object.entries(memberMap).sort((a, b) => b[1] - a[1]);
+
+  el.innerHTML = sorted.map(([name, count]) => {
+    const pct = Math.round(count / total * 100);
+    const barColor = pct >= 30 ? '#22c55e' : pct >= 15 ? '#f97316' : '#00c6ff';
+    return `
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;">
+        <div style="min-width:90px;font-size:.8rem;font-weight:600;color:var(--text);font-family:var(--fhd);">${name}</div>
+        <div style="flex:1;background:rgba(255,255,255,.06);border-radius:20px;height:10px;overflow:hidden;">
+          <div style="width:${pct}%;height:100%;border-radius:20px;background:${barColor};transition:width .5s ease;"></div>
+        </div>
+        <div style="min-width:28px;text-align:right;font-family:var(--fhd);font-size:.82rem;font-weight:700;color:${barColor};">${count}</div>
+        <div style="min-width:38px;text-align:right;font-size:.72rem;color:#64748b;">${pct}%</div>
+      </div>`;
+  }).join('') +
+  `<div style="border-top:1px solid var(--border);padding-top:.5rem;margin-top:.25rem;
+    display:flex;justify-content:space-between;font-size:.75rem;color:#64748b;">
+    <span>Total closures this month</span>
+    <span style="font-weight:700;color:var(--text);">${total}</span>
+  </div>`;
+}
+
+function renderDashPMKPIs(recs) {
+  pmLsLoad();
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+
+  // PM items: all entries in pmData
+  const pmItems = Object.values(pmData);
+  const totalPM = pmItems.length;
+
+  // Closed PM items: PM items whose issueKey exists in engClosureData
+  let closedPM = 0;
+  try {
+    const stored = localStorage.getItem('4senses_eng_' + ym);
+    const closures = stored ? JSON.parse(stored) : {};
+    pmItems.forEach(p => {
+      // Check direct key match or fuzzy by label+machine
+      const isClosed = Object.entries(closures).some(([k, cl]) =>
+        cl.itemLabel === p.itemLabel &&
+        (!p.machine || !cl.machine || p.machine === cl.machine)
+      );
+      if (isClosed) closedPM++;
+    });
+  } catch(e) {}
+
+  const pendingPM = totalPM - closedPM;
+  const pct = totalPM > 0 ? Math.round(closedPM / totalPM * 100) : 0;
+
+  // PM Pending card
+  const pmEl = document.getElementById('dash-pm-count');
+  if (pmEl) pmEl.textContent = pendingPM;
+
+  // PM Closure % card
+  const pctEl = document.getElementById('dash-closure-pct');
+  const subEl = document.getElementById('dash-closure-sub');
+  if (pctEl) {
+    pctEl.textContent = pct + '%';
+    pctEl.style.color = pct === 100 ? '#4ade80' : pct >= 50 ? '#fb923c' : '#f87171';
+  }
+  if (subEl) subEl.textContent = closedPM + ' / ' + totalPM + ' PM items closed';
+}
+
+// Area owners in display order (excluding team leaders)
+const AREA_OWNERS = ['Arasu','Zul','Thurai','Ramesh','Sam','Fikri','Logen','Yong','Vicky'];
+
+// Count total machines per owner across all areas
+function getMachineCountByOwner() {
+  const counts = {};
+  AREA_OWNERS.forEach(o => counts[o] = 0);
+  Object.values(EQUIPMENT_DATA).forEach(data => {
+    data.machines.forEach(m => {
+      if (counts[m.supervisor] !== undefined) counts[m.supervisor]++;
+    });
+  });
+  return counts;
+}
+
+function renderTodayProgress(recs) {
+  const grid = document.getElementById('today-progress-grid');
+  if (!grid) return;
+
+  const klNow  = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kuala_Lumpur' }));
+  const today  = `${klNow.getFullYear()}-${String(klNow.getMonth()+1).padStart(2,'0')}-${String(klNow.getDate()).padStart(2,'0')}`;
+  const todayRecs     = recs.filter(r => r.date === today);
+  const totalMachines = getMachineCountByOwner();
+
+  // Overall totals for summary bar
+  const totalInsp    = Object.values(totalMachines).reduce((a,v)=>a+v, 0);
+  const doneInsp     = todayRecs.length;
+  const inspPct      = totalInsp > 0 ? Math.min(100, Math.round(doneInsp/totalInsp*100)) : 0;
+
+  // Count total NOK findings today and how many are closed
+  let totalNOKToday = 0, closedNOKToday = 0;
+  todayRecs.forEach(rec => {
+    SENSES.forEach(sense => {
+      sense.items.forEach(item => {
+        const hasRemark = rec.remarks && rec.remarks[item.label];
+        const hasPhoto  = rec.photos  && rec.photos[item.label];
+        if (!hasRemark && !hasPhoto) return;
+        totalNOKToday++;
+        const issueKey = `${rec.id}_${item.id}`;
+        if (engClosureData[issueKey]) closedNOKToday++;
+      });
+    });
+  });
+  const closurePct = totalNOKToday > 0 ? Math.min(100, Math.round(closedNOKToday/totalNOKToday*100)) : 100;
+
+  const ownerColors = {
+    'Arasu': '#00c8ff', 'Zul': '#a78bfa', 'Thurai': '#34d399',
+    'Ramesh': '#f59e0b', 'Sam': '#f472b6', 'Fikri': '#60a5fa',
+    'Logen': '#fb923c', 'Yong': '#4ade80', 'Vicky': '#e879f9'
+  };
+
+  const rows = AREA_OWNERS.map(owner => {
+    const ownerRecs = todayRecs.filter(r => r.inspector === owner);
+    const done      = ownerRecs.length;
+    const total     = totalMachines[owner] || 0;
+    const passCount = ownerRecs.filter(r => r.pass).length;
+    const failCount = ownerRecs.filter(r => !r.pass).length;
+    const pct       = total > 0 ? Math.min(100, Math.round(done/total*100)) : 0;
+    const color     = ownerColors[owner] || '#00c8ff';
+
+    // Count closure for this owner's NOK findings today
+    let ownerNOK = 0, ownerClosed = 0;
+    ownerRecs.forEach(rec => {
+      SENSES.forEach(sense => {
+        sense.items.forEach(item => {
+          const hasRemark = rec.remarks && rec.remarks[item.label];
+          const hasPhoto  = rec.photos  && rec.photos[item.label];
+          if (!hasRemark && !hasPhoto) return;
+          ownerNOK++;
+          if (engClosureData[`${rec.id}_${item.id}`]) ownerClosed++;
+        });
+      });
+    });
+
+    const badges = done === 0
+      ? `<span class="prog-badge prog-none">—</span>`
+      : `${passCount > 0 ? `<span class="prog-badge prog-pass">${passCount}✓</span>` : ''}
+         ${failCount > 0 ? `<span class="prog-badge prog-fail">${failCount}✗</span>` : ''}`;
+
+    const closureBadge = ownerNOK > 0
+      ? `<span class="prog-badge" style="background:${ownerClosed===ownerNOK?'rgba(34,197,94,.2)':'rgba(249,115,22,.2)'};color:${ownerClosed===ownerNOK?'#22c55e':'#f97316'};border:1px solid ${ownerClosed===ownerNOK?'rgba(34,197,94,.4)':'rgba(249,115,22,.4)'}">🔧${ownerClosed}/${ownerNOK}</span>`
+      : '';
+
+    return `
+    <div class="progress-owner-row">
+      <div class="progress-owner-name">${owner}</div>
+      <div class="owner-bar-wrap">
+        <div class="owner-bar-fill" style="width:${pct}%;background:${color};"></div>
+      </div>
+      <div class="progress-count">${done}/${total}</div>
+      <div class="progress-badges">${badges}${closureBadge}</div>
+    </div>`;
+  }).join('');
+
+  const dayLabel = klNow.toLocaleDateString('en-MY', { weekday:'short', day:'numeric', month:'short' });
+  grid.innerHTML = `
+    <div style="font-size:.7rem;color:var(--muted);font-family:var(--fbd);margin-bottom:.75rem;letter-spacing:.5px;">${dayLabel}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.85rem;">
+      <div style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem .75rem;">
+        <div style="font-family:var(--fhd);font-size:.65rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:.3rem;">📋 Inspection</div>
+        <div style="font-family:var(--fhd);font-size:1.1rem;font-weight:700;color:var(--accent)">${inspPct}%</div>
+        <div style="background:rgba(255,255,255,.06);border-radius:20px;height:5px;margin-top:.35rem;overflow:hidden;">
+          <div style="height:100%;border-radius:20px;background:var(--accent);width:${inspPct}%;transition:width .4s ease;"></div>
+        </div>
+        <div style="font-size:.65rem;color:var(--muted);margin-top:.3rem;">${doneInsp}/${totalInsp} machines</div>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem .75rem;">
+        <div style="font-family:var(--fhd);font-size:.65rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:.3rem;">🔧 Eng Closure</div>
+        <div style="font-family:var(--fhd);font-size:1.1rem;font-weight:700;color:${closurePct===100?'#22c55e':closurePct>=50?'#f97316':'#ef4444'}">${totalNOKToday===0?'—':closurePct+'%'}</div>
+        <div style="background:rgba(255,255,255,.06);border-radius:20px;height:5px;margin-top:.35rem;overflow:hidden;">
+          <div style="height:100%;border-radius:20px;background:${closurePct===100?'#22c55e':closurePct>=50?'#f97316':'#ef4444'};width:${totalNOKToday===0?100:closurePct}%;transition:width .4s ease;"></div>
+        </div>
+        <div style="font-size:.65rem;color:var(--muted);margin-top:.3rem;">${totalNOKToday===0?'No issues today':closedNOKToday+'/'+totalNOKToday+' closed'}</div>
+      </div>
+    </div>
+    <div class="progress-owner-grid">${rows}</div>`;
+}
+
+function renderKPIs(recs) {
+  const pass    = recs.filter(r => r.pass).length;
+  const totalOK = recs.reduce((a,r) => a+r.totalOK,  0);
+  const totalNK = recs.reduce((a,r) => a+r.totalNOK, 0);
+  const passRate = (totalOK + totalNK) ? Math.round(totalOK/(totalOK+totalNK)*100) : 0;
+  document.getElementById('kpi-grid').innerHTML = `
+    <div class="kpi-card kpi-total"><div class="kpi-icon">📋</div><div class="kpi-right"><div class="kpi-val">${recs.length}</div><div class="kpi-lbl">Inspections this month</div></div></div>
+    <div class="kpi-card kpi-pass"><div class="kpi-icon">🎯</div><div class="kpi-right"><div class="kpi-val">${passRate}%</div><div class="kpi-lbl">Pass rate</div></div></div>
+    <div class="kpi-card kpi-ok"><div class="kpi-icon">✅</div><div class="kpi-right"><div class="kpi-val">${totalOK}</div><div class="kpi-lbl">Items OK</div></div></div>
+    <div class="kpi-card kpi-nok"><div class="kpi-icon">⚠️</div><div class="kpi-right"><div class="kpi-val">${totalNK}</div><div class="kpi-lbl">NOT OK found</div></div></div>`;
+}
+
+function renderRing(recs) {
+  const totalOK  = recs.reduce((a,r) => a+(r.totalOK  || 0), 0);
+  const totalNOK = recs.reduce((a,r) => a+(r.totalNOK || 0), 0);
+  const pct      = (totalOK + totalNOK) ? Math.round(totalOK / (totalOK + totalNOK) * 100) : 0;
+  const r=52, circ=2*Math.PI*r, dash=circ*pct/100;
+  const color = pct>=90 ? '#22c55e' : pct>=70 ? '#f5c518' : '#ef4444';
+  document.getElementById('ring-wrap').innerHTML = `
+    <svg class="ring-svg" width="130" height="130" viewBox="0 0 130 130">
+      <circle cx="65" cy="65" r="${r}" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="12"/>
+      <circle cx="65" cy="65" r="${r}" fill="none" stroke="${color}" stroke-width="12"
+        stroke-dasharray="${dash} ${circ}" stroke-dashoffset="${circ/4}"
+        stroke-linecap="round"/>
+      <text x="65" y="70" text-anchor="middle" font-family="Rajdhani" font-size="26" font-weight="700" fill="${color}">${pct}%</text>
+    </svg>
+    <div class="ring-stats">
+      <div class="ring-stat"><div class="ring-stat-val" style="color:var(--ok)">${totalOK}</div><div class="ring-stat-lbl">Items OK</div></div>
+      <div class="ring-stat"><div class="ring-stat-val" style="color:var(--nok)">${totalNOK}</div><div class="ring-stat-lbl">NOT OK</div></div>
+      <div class="ring-stat"><div class="ring-stat-val">${totalOK+totalNOK}</div><div class="ring-stat-lbl">Total</div></div>
+    </div>`;
+}
+
+function renderTrend(recs, ym) {
+  const [y,m] = ym.split('-').map(Number);
+  const days  = new Date(y,m,0).getDate();
+  const labels = Array.from({length:days},(_,i)=>i+1);
+  const okData  = labels.map(d => recs.filter(r=>parseInt(r.date.slice(8))===d).reduce((a,r)=>a+r.totalOK,0));
+  const nokData = labels.map(d => recs.filter(r=>parseInt(r.date.slice(8))===d).reduce((a,r)=>a+r.totalNOK,0));
+  if (trendChart) trendChart.destroy();
+  trendChart = new Chart(document.getElementById('trend-chart').getContext('2d'), {
+    type:'bar',
+    data:{labels, datasets:[
+      {label:'OK',     data:okData,  backgroundColor:'rgba(34,197,94,.55)',  borderColor:'#22c55e', borderWidth:1, borderRadius:4},
+      {label:'NOT OK', data:nokData, backgroundColor:'rgba(239,68,68,.55)',  borderColor:'#ef4444', borderWidth:1, borderRadius:4},
+    ]},
+    options:{responsive:true, maintainAspectRatio:true,
+      plugins:{legend:{labels:{color:'#94a3b8',font:{family:'DM Sans',size:10}}}},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:9},maxTicksLimit:10}},
+        y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:9}},beginAtZero:true}
+      }
+    }
+  });
+}
+
+
+
+function renderRecList(containerId, recs, reverse=false) {
+  const el   = document.getElementById(containerId);
+  const list = reverse ? [...recs].reverse() : recs;
+  if (!list.length) {
+    el.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No Records Yet</h3><p>Submit your first daily check-in to see data here.</p></div>`;
+    return;
+  }
+  el.innerHTML = list.map(r => `
+    <div class="rec-card ${r.pass?'pass-card':'fail-card'}">
+      <div class="rec-top">
+        <div>
+          <div class="rec-machine">${r.machine || r.macname || '—'}</div>
+          <div class="rec-machine-sub">${r.area || r.dept || ''}</div>
+        </div>
+        <div class="rec-badges">
+          <span class="badge ${r.pass?'badge-pass':'badge-fail'}">${r.pass?'PASS':'FAIL'}</span>
+          ${r.totalNOK>0 ? `<span class="badge badge-nok">${r.totalNOK}✗</span>` : ''}
+        </div>
+      </div>
+      <div class="rec-meta">
+        <div class="rec-meta-item">🕐 <strong>${(()=>{const t=r.time||'';const p=t.match(/^(\d{1,2}):(\d{2})/);if(!p)return'—';const h=+p[1],m=+p[2];return(h%12||12)+':'+String(m).padStart(2,'0')+' '+(h>=12?'PM':'AM');})()}</strong> &nbsp;📅 <strong>${r.date}</strong></div>
+        <div class="rec-meta-item">🔄 <strong>${r.shift ? (r.shift.toLowerCase().includes('night') ? 'Night' : 'Day') : '—'}</strong></div>
+        <div class="rec-meta-item">🏭 <strong>${r.area || r.dept || '—'}</strong></div>
+        <div class="rec-meta-item">👷 Area Owner: <strong>${r.supervisor || '—'}</strong></div>
+        <div class="rec-meta-item">👤 <strong>${r.inspector}</strong></div>
+      </div>
+      <div class="rec-scores">
+        ${SENSES.map(s=>`
+          <div class="rec-score-box">
+            <div class="rec-score-sense">${s.emoji}</div>
+            <div class="rec-score-val" style="color:${r.senseScores[s.id]?.nok?'var(--nok)':'var(--ok)'}">
+              ${r.senseScores[s.id]?.ok??0}✓${r.senseScores[s.id]?.nok?` <span style="color:var(--nok)">${r.senseScores[s.id].nok}✗</span>`:''}
+            </div>
+          </div>`).join('')}
+      </div>
+      ${(() => {
+        const localPhotos = Object.values(r.photos||{}).flat();
+        const drivePhotos = Array.isArray(r.photoUrls) ? r.photoUrls.filter(Boolean) : [];
+        const allPhotos   = localPhotos.length ? localPhotos : drivePhotos;
+
+        // NOK Remarks section — with engineering closure
+        const remarkEntries = Object.entries(r.remarks || {}).filter(([,v]) => v && String(v).trim());
+        const photoEntries  = Object.entries(r.photos  || {}).filter(([,v]) => v && v.length);
+        const allItems      = SENSES.flatMap(s => s.items);
+        const hasNOKDetail  = remarkEntries.length > 0 || photoEntries.length > 0;
+
+        const nokLabels = [...new Set([
+          ...remarkEntries.map(([l]) => l),
+          ...photoEntries.map(([l]) => l)
+        ])];
+
+        const nokSection = hasNOKDetail ? `
+          <div style="margin:.5rem 0 .3rem;display:flex;flex-direction:column;gap:.5rem;">
+            ${nokLabels.map((label, labelIdx) => {
+              const remark   = r.remarks && r.remarks[label] ? r.remarks[label] : '';
+              // label-keyed photos (fresh from submission in same session)
+              let imgs       = r.photos  && r.photos[label]  ? r.photos[label]  : [];
+              const item     = allItems.find(it => it.label === label);
+              const issueKey = item ? (r.id + '_' + item.id) : null;
+              const closure  = issueKey ? engClosureData[issueKey] : null;
+
+              // Fallback: use drive photoUrls when label-keyed photos are unavailable
+              // If single NOK label → show all drive photos under it
+              // If multiple NOK labels → assign drive photos in order (one per label)
+              if (!imgs.length && allPhotos.length) {
+                if (nokLabels.length === 1) {
+                  imgs = allPhotos; // only one NOK item — all photos belong to it
+                } else if (allPhotos[labelIdx]) {
+                  imgs = [allPhotos[labelIdx]]; // distribute one photo per label
+                }
+              }
+
+              const inspPhotosHtml = imgs.map((src, pi) => {
+                const ts = driveThumbSrc(src);
+                const gi = allPhotos.indexOf(src) >= 0 ? allPhotos.indexOf(src) : pi;
+                return '<img src="' + ts + '" style="width:48px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;border:1px solid rgba(239,68,68,.3);" onclick="openLightbox(\'' + src.replace(/'/g,"\\'") + '\',' + JSON.stringify(allPhotos) + ',' + gi + ')" onerror="this.style.opacity=\'.3\'"/>';
+              }).join('');
+
+              const closureHtml = closure
+                ? '<div style="margin-top:.4rem;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:.4rem .65rem;">'
+                  + '<div style="color:#22c55e;font-family:var(--fhd);font-weight:700;font-size:.65rem;letter-spacing:.8px;margin-bottom:.25rem;">✅ ENG CLOSED · ' + (closure.engineer||'') + ' · ' + ((closure.closedAt||'').slice(0,10)) + '</div>'
+                  + '<div style="color:var(--text);font-size:.8rem;line-height:1.4;">' + (closure.actionTaken||'') + '</div>'
+                  + (closure.photo ? '<div style="margin-top:.35rem;"><img src="' + driveThumbSrc(closure.photo) + '" data-lh3="https://lh3.googleusercontent.com/d/' + (extractDriveFileId(closure.photo)||'') + '=w400" style="width:48px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;border:1px solid rgba(34,197,94,.3);" onclick="openLightbox(\'' + closure.photo + '\',[\'' + closure.photo + '\'],0)" onerror="if(!this.src.includes(\'lh3\')){this.src=this.dataset.lh3;}else{this.style.display=\'none\';}"/></div>' : '')
+                  + '</div>'
+                : '<div style="margin-top:.3rem;background:rgba(249,115,22,.07);border:1px dashed rgba(249,115,22,.3);border-radius:6px;padding:.25rem .55rem;font-family:var(--fhd);font-size:.65rem;color:#f97316;letter-spacing:.5px;">⏳ PENDING ENG ACTION</div>';
+
+              return '<div style="background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);border-radius:10px;padding:.5rem .7rem;">'
+                + '<div style="color:#ff5050;font-family:var(--fhd);font-weight:700;font-size:.7rem;letter-spacing:.5px;margin-bottom:.2rem;">✗ ' + label + '</div>'
+                + (remark ? '<div style="color:var(--text);font-size:.8rem;line-height:1.4;margin-bottom:.3rem;">' + remark + '</div>' : '')
+                + (inspPhotosHtml ? '<div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.3rem;">' + inspPhotosHtml + '</div>' : '')
+                + closureHtml
+                + '</div>';
+            }).join('')}
+          </div>` : '';
+
+        if (!allPhotos.length) return nokSection;
+        // Remove photos already displayed inside NOK finding boxes to avoid duplicates
+        const nokPhotos = new Set(nokLabels.flatMap(label => r.photos && r.photos[label] ? r.photos[label] : []));
+        const galleryPhotos = nokPhotos.size > 0 ? allPhotos.filter(src => !nokPhotos.has(src)) : allPhotos;
+        if (!galleryPhotos.length) return nokSection;
+        const galleryJson = JSON.stringify(galleryPhotos).replace(/"/g,'&quot;');
+        const thumbs = galleryPhotos.slice(0,6).map((src, i) => {
+          const thumbSrc = driveThumbSrc(src);
+          const dlUrl    = driveDownloadUrl(src);
+          return `
+          <div class="photo-thumb-wrap">
+            <img class="rec-photo-thumb" src="${thumbSrc}"
+              onclick="openLightbox('${src.replace(/'/g,"\\'")}', JSON.parse(this.closest('[data-gallery]').dataset.gallery), ${i})"
+              alt="Photo ${i+1}"
+              onerror="(function(el){const id=el.src.includes('thumbnail')?new URLSearchParams(el.src.split('?')[1]).get('id'):null;if(id&&!el.src.includes('lh3')){el.src='https://lh3.googleusercontent.com/d/'+id+'=w400';el.onerror=function(){el.style.display='none';el.parentElement.innerHTML='<div style=\'width:56px;height:56px;border-radius:6px;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;\'>📷</div>';}}else{el.style.display='none';el.parentElement.innerHTML='<div style=\'width:56px;height:56px;border-radius:6px;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;\'>📷</div>';}})(this)"/>
+            <a href="${dlUrl}" download="inspection_photo_${i+1}.jpg"
+              onclick="event.stopPropagation()" class="dl-overlay">&#11015; save</a>
+          </div>`;
+        }).join('');
+        const more = galleryPhotos.length > 6
+          ? `<div style="width:56px;height:56px;border-radius:6px;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted)">+${galleryPhotos.length-6}</div>` : '';
+        return nokSection + `<div class="rec-photos" data-gallery="${galleryJson}">${thumbs}${more}</div>`;
+      })()}
+      <div class="rec-footer">
+        <div class="rec-notes">${r.notes || 'No additional notes'}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── SAVE YTD TO DRIVE ─────────────────────────────────────────
+async function saveYTDtoDrive() {
+  const btn  = document.getElementById('ytd-btn');
+  const year = (document.getElementById('month-select').value || getCurrentMonth()).slice(0, 4);
+
+  btn.textContent = '⏳ Generating…';
+  btn.disabled    = true;
+
+  try {
+    const data = await gasRequest({ action: 'generateYTD', year });
+
+    if (data.success) {
+      btn.textContent = '✅ Saved!';
+      setTimeout(() => { btn.textContent = '☁ Save YTD to Drive'; btn.disabled = false; }, 3000);
+
+      const msg = `✅ YTD Report saved to Drive!\n\nYear   : ${data.year}\nRecords: ${data.totalRecords}\n\nOpen now?`;
+      if (confirm(msg)) window.open(data.url, '_blank');
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
+  } catch(e) {
+    btn.textContent = '❌ Failed';
+    btn.disabled    = false;
+    setTimeout(() => { btn.textContent = '☁ Save YTD to Drive'; }, 3000);
+    alert('❌ YTD generation failed:\n' + e.message);
+  }
+}
+
+// ── SAVE MONTHLY TO DRIVE ─────────────────────────────────────
+async function saveMonthlyToDrive() {
+  const btn   = document.getElementById('monthly-btn');
+  const month = document.getElementById('month-select').value || getCurrentMonth();
+
+  btn.textContent = '⏳ Syncing closures…';
+  btn.disabled    = true;
+
+  // Step 1: Collect ALL eng closures from localStorage (all months, filter to relevant)
+  const allEngClosures = {};
+  Object.keys(localStorage)
+    .filter(k => k.startsWith(ENG_LS_PREFIX))
+    .forEach(k => {
+      try {
+        const data = JSON.parse(localStorage.getItem(k));
+        if (data && typeof data === 'object') Object.assign(allEngClosures, data);
+      } catch(e) {}
+    });
+  // Also include current in-memory engClosureData
+  Object.assign(allEngClosures, engClosureData);
+
+  // Filter to closures that belong to this month (issueKey starts with a timestamp from this month)
+  const monthClosures = {};
+  Object.entries(allEngClosures).forEach(([key, cl]) => {
+    if (cl && cl.engineer) monthClosures[key] = cl;
+  });
+
+  const clCount = Object.keys(monthClosures).length;
+  console.log('[SaveMonth] Closures found in localStorage:', clCount, monthClosures);
+
+  try {
+    // Step 2: Sync closures to Drive first (guarantees GAS has them before report runs)
+    if (clCount > 0) {
+      btn.textContent = `⏳ Syncing ${clCount} closures…`;
+      const syncResult = await gasRequest({ action: 'syncAllClosures', month, closures: monthClosures });
+      console.log('[SaveMonth] Sync result:', syncResult);
+    }
+
+    // Step 3: Generate report
+    btn.textContent = '⏳ Generating report…';
+    const data = await gasRequest({ action: 'generateMonthly', month });
+
+    if (data.success) {
+      btn.textContent = '✅ Saved!';
+      setTimeout(() => { btn.textContent = '☁ Save Month to Drive'; btn.disabled = false; }, 3000);
+
+      const msg = `✅ Monthly Report saved!\n\nMonth    : ${data.month}\nRecords  : ${data.totalRecords}\nClosures : ${data.closuresTotal ?? clCount}\n\nOpen now?`;
+      if (confirm(msg)) window.open(data.url, '_blank');
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
+  } catch(e) {
+    btn.textContent = '❌ Failed';
+    btn.disabled    = false;
+    setTimeout(() => { btn.textContent = '☁ Save Month to Drive'; }, 3000);
+    alert('❌ Monthly report failed:\n' + e.message);
+  }
+}
+
+// ── ENGINEERING ──────────────────────────────────────────────
+const ENG_MEMBERS = [
+  'Amin','Amir','Amirul','Aznor','Bappi',
+  'Fidarus','Fudin','Haziq','Jahangir','Kamal',
+  'Khairul','Naqiuddin','Prakesh','Rafiqul','Sharul','Sugan',
+  'Summon','Syahidin','Zurif'
+];
+let engFilterState = 'open';
+let engDateFilter  = '';    // 'YYYY-MM-DD' or ''
+
+function applyEngDateFilter() {
+  const inp = document.getElementById('eng-date-filter');
+  engDateFilter = inp?.value || '';
+  document.getElementById('eng-date-clear').style.display = engDateFilter ? 'block' : 'none';
+  renderEng();
+}
+function clearEngDateFilter() {
+  engDateFilter = '';
+  const inp = document.getElementById('eng-date-filter');
+  if (inp) inp.value = '';
+  document.getElementById('eng-date-clear').style.display = 'none';
+  renderEng();
+}
+let engClosureData = {}; // { issueKey: { action, photo, closedBy, closedAt } }
+
+// ── Global localStorage helpers for eng closures ──
+function engLsGet(month) {
+  try { const r = localStorage.getItem('4senses_eng_' + month); return r ? JSON.parse(r) : null; } catch(e) { return null; }
+}
+function engLsSet(month, data) {
+  try { localStorage.setItem('4senses_eng_' + month, JSON.stringify(data)); } catch(e) {}
+}
+let engPendingClose = {};
+let pmData = {}; // { issueKey: { itemLabel, machine, area, date, addedAt } }
+const PM_LS_KEY = '4senses_pm_list';
+
+let _pmLsTime = 0;
+function pmLsLoad() {
+  const now = Date.now();
+  if (now - _pmLsTime < 500) return; // skip if loaded within 500ms
+  try { const r = localStorage.getItem(PM_LS_KEY); pmData = r ? JSON.parse(r) : {}; } catch(e) { pmData = {}; }
+  _pmLsTime = now;
+}
+function pmLsSave() {
+  try { localStorage.setItem(PM_LS_KEY, JSON.stringify(pmData)); } catch(e) {}
+  updatePMBadge();
+}
+function updatePMBadge() {
+  const badge = document.getElementById('pm-list-badge');
+  const count = Object.keys(pmData).length;
+  if (badge) {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'inline-block' : 'none';
+  }
+  updatePMChipCount();
+}
+// Toggle the PM inline form open/closed
+function togglePMForm(issueKey) {
+  pmLsLoad();
+  const form = document.getElementById('pm-form-' + issueKey);
+  const btn  = document.getElementById('eng-pm-btn-' + issueKey);
+  if (!form) return;
+  // If already in PM list — remove it
+  if (pmData[issueKey]) { removePMItemLocal(issueKey); return; }
+  // Toggle form visibility
+  const isOpen = form.classList.contains('show');
+  document.querySelectorAll('.pm-inline-form.show').forEach(f => f.classList.remove('show'));
+  if (!isOpen) {
+    form.classList.add('show');
+    setTimeout(() => { const sel = document.getElementById('pm-member-' + issueKey); if (sel) sel.focus(); }, 100);
+  }
+}
+
+function pmCheckReady(issueKey) {
+  const member = document.getElementById('pm-member-' + issueKey)?.value?.trim();
+  const desc   = document.getElementById('pm-desc-'   + issueKey)?.value?.trim();
+  const btn    = document.getElementById('pm-submit-' + issueKey);
+  const hint   = document.querySelector('#pm-form-' + issueKey + ' .pm-inline-hint');
+  if (!btn) return;
+  btn.disabled = !(member && desc);
+  if (hint) hint.style.display = (member && desc) ? 'none' : 'block';
+}
+
+function submitPMItem(issueKey, itemLabel, machine, area, date, inspector, reason) {
+  const member    = document.getElementById('pm-member-' + issueKey)?.value?.trim();
+  const desc      = document.getElementById('pm-desc-'   + issueKey)?.value?.trim();
+  // Use passed remark as reason, or fallback to manual reason field if remark was empty
+  const finalReason = reason || document.getElementById('pm-reason-' + issueKey)?.value?.trim() || '';
+  if (!member || !desc) { pmCheckReady(issueKey); return; }
+  const month     = date ? date.slice(0,7) : getCurrentMonth();
+  const btn       = document.getElementById('eng-pm-btn-' + issueKey);
+  const form      = document.getElementById('pm-form-'   + issueKey);
+
+  // 1. Save locally first — instant, no waiting
+  pmLsLoad();
+  pmData[issueKey] = { itemLabel, machine, area, date, reason: finalReason, description: desc, inspector: member, addedAt: new Date().toISOString() };
+  pmLsSave();
+  updatePMBadge();
+  updatePMChipCount();
+
+  // 2. Update UI immediately — no waiting for Drive
+  if (btn)  { btn.textContent = '📋 In PM List'; btn.classList.add('active'); btn.title = '✅ Saved locally'; }
+  if (form) form.classList.remove('show');
+  if (engFilterState === 'pm') renderEng();
+
+  // 3. Sync to Drive in background — fire and forget, never blocks UI
+  gasRequest({ action: 'savePMItem', issueKey, itemLabel, machine, area, date, month, reason: finalReason, description: desc, inspector: member })
+    .then(res => { if (res?.success && btn) btn.title = '✅ Saved to Drive'; })
+    .catch(() => { if (btn) btn.title = '⚠ Saved locally only'; });
+}
+
+async function removePMItemLocal(issueKey) {
+  pmLsLoad();
+  const item  = pmData[issueKey];
+  const month = item?.date ? item.date.slice(0,7) : getCurrentMonth();
+  const btn   = document.getElementById('eng-pm-btn-' + issueKey);
+  delete pmData[issueKey];
+  pmLsSave();
+  updatePMBadge();
+  updatePMChipCount();
+  if (btn) { btn.textContent = '📋 Add to PM'; btn.classList.remove('active'); btn.title = ''; }
+  if (engFilterState === 'pm') { const card = document.getElementById('eng-card-' + issueKey); if (card) card.style.display = 'none'; }
+  try { await gasRequest({ action: 'removePMItem', issueKey, month }); } catch(e) {}
+}
+
+
+async function loadEngClosures(month, background = false) {
+  // Always load from localStorage immediately (zero network wait)
+  const stored = engLsGet(month);
+  if (stored) engClosureData = stored;
+
+  if (background) {
+    // Fire-and-forget: sync from GAS without blocking caller
+    gasRequest({ action: 'getEngClosures', month }).then(data => {
+      if (data.closures && Object.keys(data.closures).length) {
+        engClosureData = Object.assign({}, engClosureData, data.closures);
+        engLsSet(month, engClosureData);
+      }
+    }).catch(() => {});
+    return; // return instantly — caller already has localStorage data
+  }
+
+  // Awaited mode (only used when we need fresh data, e.g. after save)
+  try {
+    const data = await gasRequest({ action: 'getEngClosures', month });
+    if (data.closures) {
+      engClosureData = Object.assign({}, engClosureData, data.closures);
+      engLsSet(month, engClosureData);
+    }
+  } catch(e) { console.warn('Eng closures sync failed (using cached)', e); }
+}
+
+// Save a closure to GAS and persist locally immediately
+async function saveEngClosure(issueKey, action, photoB64, engineer, itemLabel, inspMonth) {
+  const closedAt = new Date().toISOString();
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+  engClosureData[issueKey] = { actionTaken: action, photo: '', engineer, closedAt, itemLabel: itemLabel || '' };
+  engLsSet(ym, engClosureData);
+
+  const res = await gasRequest({
+    action: 'saveEngClosure',
+    issueKey,
+    itemLabel: itemLabel || '',
+    inspMonth: inspMonth || ym,
+    actionTaken: action,
+    photo: photoB64 || '',
+    engineer,
+    closedAt
+  });
+  if (res?.photoUrl) {
+    engClosureData[issueKey].photo = res.photoUrl;
+    engLsSet(ym, engClosureData);
+  }
+  return res;
+}
+
+async function engRefresh() {
+  const btn = document.getElementById('eng-refresh-btn');
+  const list = document.getElementById('eng-list');
+
+  // month-select may be empty if user hasn't visited Dashboard yet.
+  // Try all recent months to find where closures actually live.
+  const selMonth = document.getElementById('month-select')?.value;
+  const curMonth = getCurrentMonth();
+
+  btn.textContent = '⏳ Loading from Drive...';
+  btn.disabled = true;
+
+  // Build list of months to try: selected, current, and previous 2
+  const monthsToTry = [...new Set([selMonth, curMonth].filter(Boolean))];
+  for (let i = 1; i <= 2; i++) {
+    const d = new Date(); d.setMonth(d.getMonth() - i);
+    monthsToTry.push(d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'));
+  }
+
+  let totalFound = 0;
+  let foundMonth = '';
+  engClosureData = {};
+
+  for (const ym of monthsToTry) {
+    try {
+      const data = await gasRequest({ action: 'getEngClosures', month: ym });
+      const keys = Object.keys(data.closures || {});
+      if (keys.length > 0) {
+        Object.assign(engClosureData, data.closures);
+        totalFound += keys.length;
+        foundMonth = ym;
+        try { localStorage.setItem('4senses_eng_' + ym, JSON.stringify(data.closures)); } catch(e) {}
+      }
+    } catch(e) {}
+  }
+
+  if (totalFound > 0) {
+    btn.textContent = '✅ ' + totalFound + ' closure(s) loaded from ' + foundMonth;
+  } else {
+    btn.textContent = '⚠️ 0 found. Tried: ' + monthsToTry.join(', ');
+  }
+
+  await renderEng();
+
+  setTimeout(() => {
+    btn.textContent = '🔄 Refresh Closed Actions from Drive';
+    btn.disabled = false;
+  }, 5000);
+}
+
+function engFilter(state, el) {
+  engFilterState = state;
+  document.querySelectorAll('.eng-filter-chip').forEach(c => c.classList.remove('eng-active'));
+  el.classList.add('eng-active');
+  renderEng();
+}
+
+function updatePMChipCount() {
+  pmLsLoad();
+  const count = Object.keys(pmData).length;
+  const chip = document.getElementById('eng-pm-chip-count');
+  if (chip) { chip.textContent = count; chip.style.display = count > 0 ? 'inline' : 'none'; }
+}
+
+async function renderEng() {
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+  pmLsLoad();
+
+  // Always show skeleton while loading
+  const list = document.getElementById('eng-list');
+  if (list) list.innerHTML = `
+    <div class="skeleton" style="height:90px;border-radius:12px;margin-bottom:.75rem"></div>
+    <div class="skeleton" style="height:90px;border-radius:12px;margin-bottom:.75rem"></div>
+    <div class="skeleton" style="height:90px;border-radius:12px"></div>`;
+
+  // Load from localStorage only — no auto GAS call
+  const _stored = engLsGet(ym);
+  if (_stored) engClosureData = _stored;
+
+  let allRecs = [];
+  try { allRecs = await loadRecords(ym); } catch(e) { allRecs = []; }
+
+  // Build flat list of NOK findings from all records
+  const findings = [];
+  allRecs.forEach(rec => {
+    const remarkEntries = Object.entries(rec.remarks || {});
+    const photoEntries  = Object.entries(rec.photos  || {});
+    // Get all NOK items
+    SENSES.forEach(sense => {
+      sense.items.forEach(item => {
+        // Check if this item was NOK in this record
+        const itemInRemarks = remarkEntries.find(([k]) => k === item.label);
+        const itemInPhotos  = photoEntries.find(([k]) => k === item.label);
+        if (!itemInRemarks && !itemInPhotos) return; // not an NOK finding
+
+        const issueKey = `${rec.id}_${item.id}`;
+        const isClosed = !!engClosureData[issueKey];
+
+        if (engFilterState === 'open'   && isClosed)  return;
+        if (engFilterState === 'closed' && !isClosed) return;
+        if (engFilterState === 'pm'     && !pmData[issueKey]) return;
+
+        // Date filter
+        if (engDateFilter && rec.date !== engDateFilter) return;
+
+        // Label-keyed photo (same session), else fall back to drive photoUrls
+        const labeledPhoto = itemInPhotos ? itemInPhotos[1][0] : null;
+        // For Drive-loaded records: distribute photoUrls across findings by order
+        const nokLabelsSoFar = findings.filter(f2 => f2.rec.id === rec.id).length;
+        const drivePhoto = (!labeledPhoto && rec.photoUrls && rec.photoUrls.length)
+          ? (rec.photoUrls[nokLabelsSoFar] || rec.photoUrls[0]) : null;
+        const inspPhoto = labeledPhoto || drivePhoto;
+        findings.push({
+          issueKey, rec, item, sense,
+          remark: itemInRemarks ? itemInRemarks[1] : '',
+          inspPhoto,
+          isClosed,
+          closure: engClosureData[issueKey] || null
+        });
+      });
+    });
+  });
+
+  // Backfill reason/finding for PM items that were saved before this field existed
+  findings.forEach(({ issueKey, rec, item, remark }) => {
+    const pm = pmData[issueKey] || Object.values(pmData).find(p =>
+      p.itemLabel === item.label && p.machine === rec.machine && p.date === rec.date);
+    if (pm && !pm.reason && remark) {
+      pm.reason = remark;
+      pmLsSave();
+      // Re-sync this item to Drive in background to fill the sheet column
+      const month = rec.date ? rec.date.slice(0,7) : getCurrentMonth();
+      gasRequest({ action: 'savePMItem', issueKey,
+        itemLabel: pm.itemLabel, machine: pm.machine, area: pm.area,
+        date: pm.date, month, reason: remark,
+        description: pm.description||'', inspector: pm.inspector||''
+      }).catch(() => {});
+    }
+  });
+
+  // Sort: latest date first, then latest time first within same date
+  findings.sort((a, b) => {
+    const dateA = a.rec.date || '';
+    const dateB = b.rec.date || '';
+    if (dateB !== dateA) return dateB.localeCompare(dateA);
+    const timeA = a.rec.time || '';
+    const timeB = b.rec.time || '';
+    return timeB.localeCompare(timeA);
+  });
+
+  const engListEl = document.getElementById('eng-list');
+  if (!findings.length) {
+    const emptyMsg = engDateFilter
+      ? `No ${engFilterState === 'all' ? '' : engFilterState + ' '}issues on ${engDateFilter}.`
+      : engFilterState === 'open'   ? '🎉 No open issues — all clear!'
+      : engFilterState === 'closed' ? 'No closed issues yet.'
+      : engFilterState === 'pm'     ? '📋 No items in PM list yet. Use the Add to PM button on any issue.'
+      : 'No findings found.';
+    engListEl.innerHTML = `<div class="eng-empty">${emptyMsg}</div>`;
+    return;
+  }
+
+  engListEl.innerHTML = findings.map(f => {
+    const { issueKey, rec, item, sense, remark, inspPhoto, isClosed, closure } = f;
+    const inspThumb = inspPhoto ? `<img class="eng-issue-photo" src="${driveThumbSrc(inspPhoto)}"
+      onclick="openLightbox('${inspPhoto}', ['${inspPhoto}'], 0)"
+      onerror="const id=extractDriveFileId('${inspPhoto}');if(id&&!this.src.includes('lh3')){this.src='https://lh3.googleusercontent.com/d/'+id+'=w400';}else{this.style.opacity='.3';}"/>` : '';
+
+    const closedSection = isClosed ? `
+      <div class="eng-closed-info">
+        <div class="eng-closed-label">✅ Closed by ${closure.engineer} · ${closure.closedAt ? closure.closedAt.slice(0,10) : ''}</div>
+        <div class="eng-closed-text">${closure.actionTaken}</div>
+        ${closure.photo ? `<img class="eng-closed-photo" src="${driveThumbSrc(closure.photo)}" onclick="openLightbox('${closure.photo}',['${closure.photo}'],0)" onerror="const _i=extractDriveFileId('${closure.photo}');if(_i&&!this.src.includes('lh3')){this.src='https://lh3.googleusercontent.com/d/'+_i+'=w400';}else{this.style.display='none';}"/>` : ''}
+      </div>` : '';
+
+    const pending = engPendingClose[issueKey] || { actionText: '', photoB64: '' };
+    const canClose = !!(pending.actionText && pending.photoB64);
+
+    // PM lookup — direct key or fuzzy by label+machine+date
+    const pmItem = pmData[issueKey] ||
+      Object.values(pmData).find(p => p.itemLabel===item.label && p.machine===rec.machine && p.date===rec.date) ||
+      null;
+    const inPM = !!pmItem;
+
+    const openForm = !isClosed ? (inPM ? `
+      <div style="margin:.5rem 0;padding:.85rem 1rem;
+        background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.35);
+        border-radius:12px;">
+        <div style="font-family:Rajdhani,sans-serif;font-size:.75rem;font-weight:700;
+          color:#a78bfa;letter-spacing:.05em;margin-bottom:.6rem;">
+          📋 PLANNED MAINTENANCE SCHEDULED
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.75rem;">
+          <div style="font-size:.82rem;">
+            <span style="color:#64748b;font-size:.72rem;">ASSIGNED TO</span><br>
+            <strong style="color:#c4b5fd;">${pmItem.inspector || pmItem.member || '—'}</strong>
+          </div>
+          <div style="font-size:.82rem;">
+            <span style="color:#64748b;font-size:.72rem;">ACTION PLANNED</span><br>
+            <span style="color:#e2e8f0;">${pmItem.description || '—'}</span>
+          </div>
+          <div style="font-size:.72rem;color:#64748b;margin-top:.1rem;">
+            Added: ${pmItem.addedAt ? pmItem.addedAt.slice(0,10) : '—'}
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(124,58,237,.25);padding-top:.75rem;">
+          <div style="font-family:Rajdhani,sans-serif;font-size:.75rem;font-weight:700;
+            color:#f97316;letter-spacing:.05em;margin-bottom:.5rem;">🔧 CLOSE AFTER PM CARRIED OUT</div>
+          <div class="eng-close-form" style="padding:0;">
+            <select class="eng-close-input" style="min-height:auto;resize:none;height:40px;"
+              id="eng-eng-${issueKey}" onchange="engCheckCanClose('${issueKey}')">
+              <option value="">Who carried out the PM?</option>
+              ${ENG_MEMBERS.map(m => `<option value="${m}">${m}</option>`).join('')}
+            </select>
+            <textarea class="eng-close-input" rows="2"
+              placeholder="Describe actual action carried out… (required)"
+              id="eng-action-${issueKey}"
+              oninput="engPendingClose['${issueKey}']=(engPendingClose['${issueKey}']||{});engPendingClose['${issueKey}'].actionText=this.value;engCheckCanClose('${issueKey}')"
+              onchange="engPendingClose['${issueKey}']=(engPendingClose['${issueKey}']||{});engPendingClose['${issueKey}'].actionText=this.value;engCheckCanClose('${issueKey}')"
+            >${pending.actionText}</textarea>
+            <div class="eng-photo-row">
+              <label class="eng-photo-btn" id="eng-photo-label-${issueKey}"
+                style="${pending.photoB64?'border-color:#22c55e;background:rgba(34,197,94,.1);':'border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.06);'}">
+                ${pending.photoB64 ? '✅ Photo attached' : '📷 Evidence Photo (required)'}
+                <input type="file" accept="image/*" capture="environment" style="display:none"
+                  onchange="engHandlePhoto(this,'${issueKey}')"/>
+              </label>
+              <img id="eng-prev-${issueKey}" src="${pending.photoB64||''}"
+                style="display:${pending.photoB64?'block':'none'};width:52px;height:52px;object-fit:cover;border-radius:8px;border:2px solid #22c55e;"
+                onclick="openLightbox(this.src,[this.src],0)"/>
+            </div>
+            <div id="eng-hint-${issueKey}" style="font-size:.75rem;color:#f97316;padding:.25rem 0;display:${canClose?'none':'block'};">
+              ${!pending.actionText && !pending.photoB64 ? '⚠ Action description and photo required' :
+                !pending.actionText ? '⚠ Please describe the action carried out' :
+                '⚠ Evidence photo required'}
+            </div>
+            <button class="eng-submit-btn" id="eng-btn-${issueKey}"
+              onclick="engCloseIssue('${issueKey}','${item.label.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${rec.date.slice(0,7)}','${rec.machine.replace(/'/g,"\\'")}')" 
+              ${canClose ? '' : 'disabled'}
+              style="${canClose ? 'width:100%;' : 'width:100%;opacity:.4;cursor:not-allowed;'}">
+              ✅ Mark as Closed (PM Done)
+            </button>
+          </div>
+        </div>
+      </div>` : `
+      <div class="eng-close-section" id="eng-form-${issueKey}">
+        <div class="eng-close-title">🔧 Close this issue</div>
+        <div class="eng-close-form">
+          <select class="eng-close-input" style="min-height:auto;resize:none;height:40px;" id="eng-eng-${issueKey}"
+            onchange="engCheckCanClose('${issueKey}')">
+            <option value="">Who closed this?</option>
+            ${ENG_MEMBERS.map(m => `<option value="${m}">${m}</option>`).join('')}
+          </select>
+          <textarea class="eng-close-input" rows="2" placeholder="Describe action taken… (required)"
+            id="eng-action-${issueKey}"
+            oninput="engPendingClose['${issueKey}']=(engPendingClose['${issueKey}']||{});engPendingClose['${issueKey}'].actionText=this.value;engCheckCanClose('${issueKey}')"
+            onchange="engPendingClose['${issueKey}']=(engPendingClose['${issueKey}']||{});engPendingClose['${issueKey}'].actionText=this.value;engCheckCanClose('${issueKey}')"
+          >${pending.actionText}</textarea>
+          <div class="eng-photo-row">
+            <label class="eng-photo-btn" id="eng-photo-label-${issueKey}" style="${pending.photoB64?'border-color:#22c55e;background:rgba(34,197,94,.1);':'border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.06);'}">
+              ${pending.photoB64 ? '✅ Photo attached' : '📷 Evidence Photo (required)'}
+              <input type="file" accept="image/*" capture="environment" style="display:none"
+                onchange="engHandlePhoto(this,'${issueKey}')"/>
+            </label>
+            <img id="eng-prev-${issueKey}" src="${pending.photoB64||''}"
+              style="display:${pending.photoB64?'block':'none'};width:52px;height:52px;object-fit:cover;border-radius:8px;border:2px solid #22c55e;"
+              onclick="openLightbox(this.src,[this.src],0)"/>
+          </div>
+          <div id="eng-hint-${issueKey}" style="font-size:.75rem;color:#f97316;padding:.25rem 0;display:${canClose?'none':'block'};">
+            ${!pending.actionText && !pending.photoB64 ? '⚠ Action description and photo required' :
+              !pending.actionText ? '⚠ Please describe the action taken' :
+              '⚠ Evidence photo required'}
+          </div>
+          ${inPM ? '' : `<div style="display:flex;gap:.5rem;align-items:center;">
+            <button class="eng-submit-btn" id="eng-btn-${issueKey}"
+              onclick="engCloseIssue('${issueKey}','${item.label.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${rec.date.slice(0,7)}','${rec.machine.replace(/'/g,"\\'")}')" 
+              ${canClose ? '' : 'disabled'}
+              style="${canClose ? 'flex:1' : 'flex:1;opacity:.4;cursor:not-allowed'}">✅ Mark as Closed</button>
+            <button class="eng-pm-btn" id="eng-pm-btn-${issueKey}"
+              onclick="togglePMForm('${issueKey}')"
+              style="flex:0 0 auto;padding:.65rem .9rem;"
+              title="Add to PM List">📋 Add to PM</button>
+          </div>`}
+          </div>
+        </div>
+        ${!isClosed ? `
+        <div class="pm-inline-form" id="pm-form-${issueKey}">
+          <div class="pm-inline-title">📋 Add to PM — select member &amp; describe action required</div>
+          ${remark ? `<div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.25);
+            border-radius:8px;padding:.45rem .7rem;margin-bottom:.4rem;font-size:.78rem;">
+            <span style="color:#64748b;font-size:.68rem;font-weight:700;letter-spacing:.05em;">📝 REASON / FINDING (from inspection)</span><br>
+            <span style="color:#fca5a5;">${remark}</span>
+          </div>` : `<textarea class="pm-inline-textarea" id="pm-reason-${issueKey}"
+            placeholder="Reason / Finding (what was found wrong)…"
+            oninput="pmCheckReady('${issueKey}')" style="margin-bottom:.4rem;min-height:44px;"></textarea>`}
+          <select class="pm-inline-select" id="pm-member-${issueKey}"
+            onchange="pmCheckReady('${issueKey}')">
+            <option value="">👤 Who is responsible? (required)</option>
+            ${ENG_MEMBERS.map(m => `<option value="${m}">${m}</option>`).join('')}
+          </select>
+          <textarea class="pm-inline-textarea" id="pm-desc-${issueKey}"
+            placeholder="Describe action needed for PM… (required)"
+            oninput="pmCheckReady('${issueKey}')"></textarea>
+          <div class="pm-inline-hint">⚠ Member and description are both required.</div>
+          <button class="pm-inline-submit" id="pm-submit-${issueKey}" disabled
+            onclick="submitPMItem('${issueKey}','${item.label.replace(/'/g,"\\'")}','${rec.machine.replace(/'/g,"\\'")}','${rec.area.replace(/'/g,"\\'")}','${rec.date}','${(rec.inspector||'').replace(/'/g,"\\'")}','${(remark||'').replace(/'/g,"\\'")}')" >
+            ✅ Confirm Add to PM List
+          </button>
+        </div>` : ''}
+      </div>`) : '';
+
+    return `<div class="eng-issue-card ${isClosed ? 'closed' : ''}" id="eng-card-${issueKey}">
+      <div class="eng-issue-header">
+        <div class="eng-status-dot ${isClosed ? 'closed' : 'open'}"></div>
+        <div style="flex:1">
+          <div class="eng-issue-title">${item.label}
+            <span class="eng-issue-badge ${isClosed ? 'eng-badge-closed' : 'eng-badge-open'}">${isClosed ? 'CLOSED' : 'OPEN'}</span>
+          </div>
+          <div class="eng-issue-meta">
+            ${sense.emoji} ${sense.label} &nbsp;·&nbsp; 🏭 ${rec.area} &nbsp;·&nbsp; ⚙️ ${rec.machine}<br>
+            🕐 <strong>${(()=>{const p=(rec.time||'').match(/^(\d{1,2}):(\d{2})/);return p?(+p[1]%12||12)+':'+String(+p[2]).padStart(2,'0')+' '+(+p[1]>=12?'PM':'AM'):'—';})()}</strong> &nbsp;📅 <strong>${rec.date}</strong> &nbsp;·&nbsp; 👷 ${rec.supervisor||'—'}<br>
+            ${remark ? `📝 <em style="color:var(--text)">${remark}</em>` : ''}
+          </div>
+        </div>
+        ${inspThumb}
+      </div>
+      ${closedSection}${openForm}
+    </div>`;
+  }).join('');
+}
+
+// Check if all fields are filled — enable/disable button live
+function engCheckCanClose(issueKey) {
+  const action = document.getElementById('eng-action-' + issueKey)?.value.trim();
+  const engineer = document.getElementById('eng-eng-' + issueKey)?.value;
+  const photo = engPendingClose[issueKey]?.photoB64;
+  const btn  = document.getElementById('eng-btn-' + issueKey);
+  const hint = document.getElementById('eng-hint-' + issueKey);
+  const can  = !!(action && photo && engineer);
+  if (btn) { btn.disabled = !can; btn.style.opacity = can ? '1' : '.4'; btn.style.cursor = can ? '' : 'not-allowed'; }
+  if (hint) {
+    hint.style.display = can ? 'none' : 'block';
+    hint.textContent = !engineer ? '⚠ Select your name' :
+                       !action && !photo ? '⚠ Action description and photo required' :
+                       !action ? '⚠ Please describe the action taken' :
+                       '⚠ Evidence photo required';
+  }
+}
+
+async function engHandlePhoto(input, issueKey) {
+  const file = input.files[0];
+  if (!file) return;
+  // Compress: target 80KB, 800px max
+  const b64 = await compressImageTo(file, 800, 80000, 0.15);
+  const kb = Math.round(b64.length * 0.75 / 1024);
+  console.log('Eng photo compressed: ' + kb + 'KB');
+  if (!engPendingClose[issueKey]) engPendingClose[issueKey] = {};
+  engPendingClose[issueKey].photoB64 = b64;
+
+  // Update preview
+  const prev = document.getElementById('eng-prev-' + issueKey);
+  if (prev) { prev.src = b64; prev.style.display = 'block'; }
+
+  // Update photo button to show success state
+  const lbl = document.getElementById('eng-photo-label-' + issueKey);
+  if (lbl) {
+    lbl.style.borderColor = '#22c55e';
+    lbl.style.background  = 'rgba(34,197,94,.1)';
+    // Update label text (the text node before the input)
+    const textNode = [...lbl.childNodes].find(n => n.nodeType === 3);
+    if (textNode) textNode.textContent = `✅ Photo attached (${kb}KB) `;
+  }
+
+  // Re-check if form is now completeable
+  engCheckCanClose(issueKey);
+}
+
+async function engCloseIssue(issueKey, itemLabel, inspMonth, machine) {
+  const actionEl = document.getElementById('eng-action-' + issueKey);
+  const engEl    = document.getElementById('eng-eng-'    + issueKey);
+  const action   = actionEl?.value.trim();
+  const engineer = engEl?.value;
+
+  if (!engineer) { engCheckCanClose(issueKey); alert('Please select your name.'); return; }
+  if (!action)   { engCheckCanClose(issueKey); alert('Please describe the action taken.'); return; }
+
+  const photoB64 = engPendingClose[issueKey]?.photoB64 || '';
+  if (!photoB64) {
+    engCheckCanClose(issueKey);
+    alert('⚠ Evidence photo is required before closing this issue.\n\nPlease take a photo showing the corrective action.');
+    return;
+  }
+
+  const btn = document.querySelector(`#eng-card-${issueKey} .eng-submit-btn`);
+  if (btn) { btn.textContent = '⏳ Saving…'; btn.disabled = true; }
+
+  try {
+    const res = await saveEngClosure(issueKey, action, photoB64, engineer, itemLabel, inspMonth);
+    if (res.success) {
+      // Use Drive photo URL from GAS response — not the raw base64
+      const photoUrl = res.photoUrl || engClosureData[issueKey]?.photo || '';
+      const closedAt = new Date().toISOString();
+      engClosureData[issueKey] = { actionTaken: action, photo: photoUrl, engineer, closedAt, itemLabel: itemLabel || '' };
+      const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+      engLsSet(ym, engClosureData);
+      delete engPendingClose[issueKey];
+
+      // If this issue was in PM list — update status to CLOSED in Drive
+      pmLsLoad();
+      const inPMList = pmData[issueKey] ||
+        Object.values(pmData).some(p => p.itemLabel === itemLabel && (!p.machine || p.machine === machine));
+      if (inPMList) {
+        gasRequest({
+          action: 'updatePMStatus',
+          issueKey,
+          itemLabel,
+          machine: machine || '',
+          month: ym,
+          status: 'CLOSED',
+          closedAt,
+          closedBy: engineer,
+          actionTaken: action
+        }).catch(() => {});
+      }
+
+      renderEng();
+      renderKPIsWithEng();
+    } else {
+      throw new Error(res.error || 'Save failed');
+    }
+  } catch(e) {
+    if (btn) { btn.textContent = '✅ Mark as Closed'; btn.disabled = false; }
+    alert('❌ Failed to save: ' + e.message);
+  }
+}
+
+// Instant KPI render from whatever is currently in memory — no network
+function renderKPIsFromCache(allRecs) {
+  if (!allRecs) return;
+  const totalOK  = allRecs.reduce((a,r) => a+r.totalOK, 0);
+  const totalNK  = allRecs.reduce((a,r) => a+r.totalNOK, 0);
+  const passRate = (totalOK+totalNK) ? Math.round(totalOK/(totalOK+totalNK)*100) : 0;
+  let totalFindings = 0, closedFindings = 0;
+  allRecs.forEach(rec => {
+    SENSES.forEach(sense => {
+      sense.items.forEach(item => {
+        if (!(rec.remarks?.[item.label] || rec.photos?.[item.label])) return;
+        totalFindings++;
+        if (engClosureData[`${rec.id}_${item.id}`]) closedFindings++;
+      });
+    });
+  });
+  const closureRate = totalFindings ? Math.round(closedFindings/totalFindings*100) : 0;
+  document.getElementById('kpi-grid').innerHTML = `
+    <div class="kpi-card kpi-total"><div class="kpi-icon">📋</div><div class="kpi-right"><div class="kpi-val">${allRecs.length}</div><div class="kpi-lbl">Inspections</div></div></div>
+    <div class="kpi-card kpi-pass"><div class="kpi-icon">🎯</div><div class="kpi-right"><div class="kpi-val">${passRate}%</div><div class="kpi-lbl">Pass Rate</div></div></div>
+    <div class="kpi-card kpi-nok"><div class="kpi-icon">⚠️</div><div class="kpi-right"><div class="kpi-val">${totalNK}</div><div class="kpi-lbl">NOT OK Found</div></div></div>
+    <div class="kpi-card kpi-eng"><div class="kpi-icon">🔧</div><div class="kpi-right"><div class="kpi-val">${closureRate}%</div><div class="kpi-lbl">Eng Closure<br><span style="font-size:.7rem;color:var(--muted)">${closedFindings}/${totalFindings} closed</span></div></div></div>`;
+}
+
+// Full refresh (awaited) — used only after submit/delete/save closure
+async function renderKPIsWithEng(allRecs) {
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+  if (!allRecs) allRecs = await loadRecords(ym);
+  try { await loadEngClosures(ym); } catch(e) {}
+  renderKPIsFromCache(allRecs);
+}
+
+// ── HISTORY ───────────────────────────────────────────────────
+async function renderHist() {
+  const ym = document.getElementById('month-select')?.value || getCurrentMonth();
+  loadEngClosures(ym, true); // background — don't block render
+  const allRecs = await loadRecords(ym);
+  let recs = [...allRecs].sort((a, b) => {
+    const dtA = (a.date || '') + 'T' + (a.time || '00:00');
+    const dtB = (b.date || '') + 'T' + (b.time || '00:00');
+    return dtB.localeCompare(dtA); // ← newest first
+  });
+  // Date filter
+  if (histDateFilter) recs = recs.filter(r => r.date === histDateFilter);
+  // Status filter
+  if (histFilter === 'pass')  recs = recs.filter(r => r.pass);
+  if (histFilter === 'fail')  recs = recs.filter(r => !r.pass);
+  if (['sight','hear','smell','touch'].includes(histFilter))
+    recs = recs.filter(r => (r.senseScores[histFilter]?.nok||0) > 0);
+  // Owner filter
+  if (histOwnerFilter !== 'all')
+    recs = recs.filter(r => (r.supervisor || '') === histOwnerFilter);
+  const list = document.getElementById('hist-list');
+  if (!recs.length) {
+    list.innerHTML = `<div class="hist-no-records">📭 No records found${histDateFilter ? ' for ' + histDateFilter : ''}</div>`;
+    return;
+  }
+  renderRecList('hist-list', recs, false);
+}
+
+function filterHist(filter, el) {
+  histFilter = filter;
+  document.querySelectorAll('#hist-filter .filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderHist();
+}
+
+function applyHistDateFilter() {
+  const input = document.getElementById('hist-date-filter');
+  histDateFilter = input.value || '';
+  document.getElementById('hist-date-clear').style.display = histDateFilter ? 'block' : 'none';
+  renderHist();
+}
+
+function clearHistDateFilter() {
+  histDateFilter = '';
+  document.getElementById('hist-date-filter').value = '';
+  document.getElementById('hist-date-clear').style.display = 'none';
+  renderHist();
+}
+
+function filterHistOwner(owner, el) {
+  histOwnerFilter = owner;
+  document.querySelectorAll('#hist-filter-owner .filter-chip-owner').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderHist();
+}
+
+// ── NAV ───────────────────────────────────────────────────────
+async function showView(name, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.bnav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`view-${name}`).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (name === 'dash') { populateMonthSelector().then(recs => renderDash(recs)); }
+  if (name === 'eng') { renderEng(); }
+  if (name === 'hist') {
+    // Default date filter to today in KL time
+    if (!histDateFilter) {
+      const kl = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kuala_Lumpur' }));
+      const today = kl.getFullYear() + '-' + String(kl.getMonth()+1).padStart(2,'0') + '-' + String(kl.getDate()).padStart(2,'0');
+      histDateFilter = today;
+      const inp = document.getElementById('hist-date-filter');
+      if (inp) { inp.value = today; }
+      const clr = document.getElementById('hist-date-clear');
+      if (clr) clr.style.display = 'block';
+    }
+    renderHist();
+  }
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+// ── DROPDOWN LOGIC ───────────────────────────────────────────
+// Build a flat lookup: inspector name → [{machine, area, supervisor}]
+function getMachinesByInspector(inspector) {
+  const results = [];
+  // Strip " (Team Leader)" suffix for matching — team leaders see all machines
+  const isTeamLeader = inspector.includes('Team Leader');
+  Object.entries(EQUIPMENT_DATA).forEach(([area, data]) => {
+    data.machines.forEach(m => {
+      if (isTeamLeader || m.supervisor === inspector) {
+        results.push({ name: m.name, area: area, supervisor: m.supervisor });
+      }
+    });
+  });
+  return results;
+}
+
+function onInspectorChange() {
+  const inspector = document.getElementById('f-inspector').value;
+  const machSel   = document.getElementById('f-machine');
+  const areaInp   = document.getElementById('f-area');
+
+  machSel.innerHTML = '<option value="">-- Select Machine --</option>';
+  areaInp.value = '';
+
+  if (!inspector) { machSel.innerHTML = '<option value="">-- Select Inspector first --</option>'; return; }
+
+  const machines = getMachinesByInspector(inspector);
+  machines.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.name;
+    opt.textContent = m.name;
+    opt.dataset.area = m.area;
+    opt.dataset.supervisor = m.supervisor;
+    machSel.appendChild(opt);
+  });
+}
+
+function onMachineChange() {
+  const machSel  = document.getElementById('f-machine');
+  const areaInp  = document.getElementById('f-area');
+  const selected = machSel.options[machSel.selectedIndex];
+  if (!selected || !selected.dataset.area) { areaInp.value = ''; return; }
+  areaInp.value = selected.dataset.area;
+}
+
+function onAreaChange() {} // kept for compatibility, no longer used
+
+// ── INIT ──────────────────────────────────────────────────────
+// Always use Malaysia KL time (UTC+8) regardless of device timezone
+const _now = new Date();
+const _kl  = new Date(_now.toLocaleString('en-US', { timeZone: 'Asia/Kuala_Lumpur' }));
+document.getElementById('f-date').value = `${_kl.getFullYear()}-${String(_kl.getMonth()+1).padStart(2,'0')}-${String(_kl.getDate()).padStart(2,'0')}`;
+document.getElementById('f-time').value = `${String(_kl.getHours()).padStart(2,'0')}:${String(_kl.getMinutes()).padStart(2,'0')}`;
+updateDateTimeDisplay();
+document.getElementById('f-date').addEventListener('change', updateDateTimeDisplay);
+document.getElementById('f-time').addEventListener('change', updateDateTimeDisplay);
+buildForm();
+
+(async () => {
+  if (!GAS_CONFIGURED) {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;top:56px;left:0;right:0;z-index:500;background:rgba(245,197,24,.95);color:#000;font-family:Rajdhani,sans-serif;font-size:.85rem;font-weight:600;padding:.6rem 1rem;text-align:center;letter-spacing:.5px;';
+    banner.innerHTML = '⚙️ Setup required: paste your Apps Script URL into GAS_URL in the HTML file';
+    document.body.appendChild(banner);
+    showSyncStatus('error');
+  } else {
+    showSyncStatus('ok');
+    // Pre-load from device localStorage so badge shows instantly (no network needed)
+    const curM   = getCurrentMonth();
+    const stored = lsGet(curM);
+    if (stored) {
+      _cache = stored.records; _cacheMonth = curM; _cacheTime = stored.time;
+      const badge = document.getElementById('record-count-badge');
+      if (badge) badge.textContent = stored.records.length + ' Records';
+    }
+    // Show badge from cache immediately (no network)
+    updateBadge();
+  }
+  // Load PM list from localStorage
+  pmLsLoad();
+  updatePMBadge();
+  updatePMChipCount();
+})();
+
+// ── PM LIST MODAL ────────────────────────────────────────────────
+function showPMList() {
+  pmLsLoad();
+  const items = Object.entries(pmData);
+  const count = items.length;
+
+  // Sort by date desc
+  items.sort((a, b) => (b[1].date || '').localeCompare(a[1].date || ''));
+
+  const rows = items.map(([key, item], i) => `
+    <tr style="border-bottom:1px solid rgba(255,255,255,.07);">
+      <td style="padding:.5rem .6rem;color:#94a3b8;font-size:.8rem;">${i+1}</td>
+      <td style="padding:.5rem .6rem;font-size:.85rem;font-weight:600;">${item.itemLabel || '—'}</td>
+      <td style="padding:.5rem .6rem;font-size:.82rem;">${item.machine || '—'}</td>
+      <td style="padding:.5rem .6rem;font-size:.82rem;color:#94a3b8;">${item.area || '—'}</td>
+      <td style="padding:.5rem .6rem;font-size:.8rem;color:#94a3b8;">${item.date || '—'}</td>
+      <td style="padding:.5rem .6rem;text-align:center;">
+        <button onclick="removePMItem('${key}')" style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#f87171;border-radius:6px;padding:2px 8px;cursor:pointer;font-size:.75rem;">✕</button>
+      </td>
+    </tr>`).join('');
+
+  const emptyMsg = count === 0 ? `
+    <tr><td colspan="6" style="padding:2rem;text-align:center;color:#64748b;font-style:italic;">
+      No items in PM list yet.<br>Use the 📋 Add to PM button on any open issue.
+    </td></tr>` : '';
+
+  const modal = document.createElement('div');
+  modal.id = 'pm-modal';
+  modal.style.cssText = `position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;
+    display:flex;align-items:flex-start;justify-content:center;padding:1.5rem 1rem;overflow-y:auto;`;
+  modal.innerHTML = `
+    <div style="background:#111827;border:1px solid rgba(124,58,237,.4);border-radius:16px;
+      width:100%;max-width:700px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);">
+      <div style="background:linear-gradient(135deg,rgba(124,58,237,.25),rgba(91,33,182,.2));
+        padding:1.2rem 1.5rem;border-bottom:1px solid rgba(124,58,237,.3);
+        display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-family:Rajdhani,sans-serif;font-size:1.2rem;font-weight:700;
+            color:#a78bfa;letter-spacing:.05em;">📋 PM LIST</div>
+          <div style="font-size:.75rem;color:#64748b;margin-top:2px;">
+            Planned Maintenance items identified from inspection findings
+          </div>
+        </div>
+        <button onclick="document.getElementById('pm-modal').remove()"
+          style="background:rgba(255,255,255,.07);border:none;color:#94a3b8;
+          border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1rem;">✕</button>
+      </div>
+
+      <div style="padding:1rem 1.5rem;">
+        <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+          <span style="background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
+            color:#a78bfa;border-radius:8px;padding:.3rem .8rem;font-size:.8rem;font-weight:600;">
+            ${count} item${count !== 1 ? 's' : ''} pending PM
+          </span>
+          ${count > 0 ? `
+          <button onclick="exportPMCSV()"
+            style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);
+            color:#4ade80;border-radius:8px;padding:.3rem .9rem;font-size:.8rem;
+            font-weight:700;cursor:pointer;">⬇ Export CSV</button>
+          <button onclick="exportPMText()"
+            style="background:rgba(0,198,255,.1);border:1px solid rgba(0,198,255,.25);
+            color:#00c6ff;border-radius:8px;padding:.3rem .9rem;font-size:.8rem;
+            font-weight:700;cursor:pointer;">📄 Copy Text</button>
+          <button onclick="refreshPMFromDrive()" id="pm-drive-refresh-btn"
+            style="background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);
+            color:#a78bfa;border-radius:8px;padding:.3rem .9rem;font-size:.8rem;
+            font-weight:700;cursor:pointer;">🔄 Sync Drive</button>
+          <button onclick="clearPMList()"
+            style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);
+            color:#f87171;border-radius:8px;padding:.3rem .9rem;font-size:.8rem;
+            font-weight:700;cursor:pointer;">🗑 Clear All</button>` : ''}
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead>
+              <tr style="background:rgba(124,58,237,.12);">
+                <th style="padding:.5rem .6rem;text-align:left;font-size:.75rem;color:#64748b;font-weight:600;">#</th>
+                <th style="padding:.5rem .6rem;text-align:left;font-size:.75rem;color:#a78bfa;font-weight:600;">FINDING / ISSUE</th>
+                <th style="padding:.5rem .6rem;text-align:left;font-size:.75rem;color:#a78bfa;font-weight:600;">MACHINE</th>
+                <th style="padding:.5rem .6rem;text-align:left;font-size:.75rem;color:#64748b;font-weight:600;">AREA</th>
+                <th style="padding:.5rem .6rem;text-align:left;font-size:.75rem;color:#64748b;font-weight:600;">DATE</th>
+                <th style="padding:.5rem .6rem;text-align:center;font-size:.75rem;color:#64748b;font-weight:600;">DEL</th>
+              </tr>
+            </thead>
+            <tbody>${rows}${emptyMsg}</tbody>
+          </table>
+        </div>
+
+        ${count > 0 ? `<div style="margin-top:1rem;padding:.75rem 1rem;background:rgba(124,58,237,.08);
+          border:1px solid rgba(124,58,237,.2);border-radius:10px;font-size:.77rem;color:#94a3b8;line-height:1.6;">
+          💡 <strong style="color:#a78bfa;">Next step:</strong> Export as CSV and share with your maintenance planner,
+          or copy as text to paste into your WhatsApp/email work order.
+          Items remain saved until you clear them.
+        </div>` : ''}
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+}
+
+async function removePMItem(issueKey) {
+  await removePMItemLocal(issueKey);
+  renderEng();
+}
+
+function clearPMList() {
+  if (!confirm('Clear all ' + Object.keys(pmData).length + ' items from the PM list?')) return;
+  pmData = {};
+  pmLsSave();
+  renderEng();
+}
+
+function exportPMCSV() {
+  pmLsLoad();
+  const items = Object.entries(pmData);
+  if (!items.length) return;
+  items.sort((a, b) => (b[1].date || '').localeCompare(a[1].date || ''));
+  const header = ['No.','Finding / Issue','Machine','Area','Inspection Date','Added At','Status'];
+  const rows = items.map(([key, item], i) => [
+    i + 1,
+    '"' + (item.itemLabel || '').replace(/"/g, '""') + '"',
+    '"' + (item.machine   || '').replace(/"/g, '""') + '"',
+    '"' + (item.area      || '').replace(/"/g, '""') + '"',
+    item.date    || '',
+    (item.addedAt || '').slice(0, 10),
+    'PENDING PM'
+  ].join(','));
+  const csv = [header.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'PM_List_' + getCurrentMonth() + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportPMText() {
+  pmLsLoad();
+  const items = Object.entries(pmData);
+  if (!items.length) return;
+  items.sort((a, b) => (b[1].date || '').localeCompare(a[1].date || ''));
+  const month = getCurrentMonth();
+  const lines = [
+    '📋 STÄRKEN PM LIST — ' + month,
+    '═══════════════════════════════',
+    ...items.map(([key, item], i) =>
+      (i+1) + '. ' + (item.itemLabel || '?') + '\n   Machine : ' + (item.machine || '?') +
+      '\n   Area    : ' + (item.area || '?') +
+      '\n   Found   : ' + (item.date || '?')
+    ),
+    '═══════════════════════════════',
+    'Total: ' + items.length + ' items pending PM',
+    'Generated: ' + new Date().toLocaleString()
+  ];
+  const text = lines.join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    alert('✅ PM List copied to clipboard!\n\nPaste it into WhatsApp, email, or your work order system.');
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('✅ PM List copied to clipboard!');
+  });
+}
+async function refreshPMFromDrive() {
+  const btn = document.getElementById('pm-drive-refresh-btn');
+  if (btn) { btn.textContent = '⏳ Loading…'; btn.disabled = true; }
+  const month = getCurrentMonth();
+  try {
+    const data = await gasRequest({ action: 'getPMList', month });
+    if (data.items && Object.keys(data.items).length > 0) {
+      // Merge Drive items into local (Drive wins)
+      pmLsLoad();
+      Object.assign(pmData, data.items);
+      pmLsSave();
+      document.getElementById('pm-modal')?.remove();
+      renderEng();
+    } else {
+      if (btn) btn.textContent = '⚠️ None on Drive';
+    }
+  } catch(e) {
+    if (btn) btn.textContent = '❌ Failed';
+    console.warn('PM Drive refresh failed:', e);
+  }
+  setTimeout(() => {
+    if (btn) { btn.textContent = '🔄 Sync Drive'; btn.disabled = false; }
+  }, 3000);
+}
+
+async function exportPMFromDriveSheet() {
+  const btn = document.getElementById('pm-export-drive-btn');
+  if (btn) { btn.textContent = '⏳ Searching Drive…'; btn.disabled = true; }
+
+  // Build list of months to try
+  const selMonth = document.getElementById('month-select')?.value;
+  const curMonth = getCurrentMonth();
+  const monthsToTry = [...new Set([selMonth, curMonth].filter(Boolean))];
+  for (let i = 1; i <= 3; i++) {
+    const d = new Date(); d.setMonth(d.getMonth() - i);
+    monthsToTry.push(d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'));
+  }
+
+  try {
+    let foundUrl = null;
+    let foundMonth = null;
+
+    let debugLog = [];
+    for (const month of monthsToTry) {
+      const data = await gasRequest({ action: 'getPMList', month });
+      console.log('[PM Export] month=' + month + ' response=', JSON.stringify(data));
+      debugLog.push(month + ': ' + JSON.stringify(data).slice(0,80));
+      // Handle old GAS that doesn't support getPMList yet
+      if (data.error) {
+        if (data.error.includes('Unknown action')) {
+          if (btn) { btn.textContent = '📋 Export PM List from Drive'; btn.disabled = false; }
+          alert('⚠️ GAS not updated yet.\n\nPlease redeploy GoogleAppsScript_Backend_v3.gs first.');
+          return;
+        }
+        // Other GAS error — log and continue to next month
+        console.warn('[PM Export] GAS error for ' + month + ':', data.error);
+        continue;
+      }
+      if (data.url) {
+        foundUrl = data.url;
+        foundMonth = month;
+        break;
+      }
+    }
+    console.log('[PM Export] debug:', debugLog.join(' | '));
+
+    if (foundUrl) {
+      window.open(foundUrl, '_blank');
+      if (btn) btn.textContent = '✅ Opened ' + foundMonth + ' PM Sheet';
+    } else {
+      pmLsLoad();
+      const localCount = Object.keys(pmData).length;
+      // Show debug info to help diagnose
+      const debugInfo = 'Months tried: ' + monthsToTry.join(', ') +
+                        '\nGAS responses:\n' + debugLog.join('\n').slice(0, 300);
+      if (localCount > 0) {
+        if (confirm('📋 PM sheet not found in Drive.\n\n' + debugInfo + '\n\nExport local PM list as CSV instead?')) {
+          exportPMCSV();
+        }
+      } else {
+        alert('📋 PM sheet not found in Drive.\n\n' + debugInfo);
+      }
+      if (btn) btn.textContent = '📋 Export PM List from Drive';
+    }
+  } catch(e) {
+    alert('❌ Failed to reach Drive. Check your connection.');
+    if (btn) btn.textContent = '📋 Export PM List from Drive';
+  }
+  setTimeout(() => {
+    if (btn) { btn.textContent = '📋 Export PM List from Drive'; btn.disabled = false; }
+  }, 4000);
+}
+
+// ── END PM LIST ──────────────────────────────────────────────────
+</script>
+</body>
+</html>
